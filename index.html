@@ -77,6 +77,47 @@
     #nosotros p {
       line-height: 1.6;
     }
+/* -------- Sección Servicios -------- */
+#servicios h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.servicio {
+  background-color: #f9f9f9;
+  border-left: 5px solid #004080;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 
     /* -------- Formulario -------- */
     form label {
@@ -167,6 +208,101 @@
     <h2>Visión</h2>
     <p>Ser líderes en el sector y referentes por nuestra innovación, compromiso y excelencia en el servicio.</p>
   </section>
+<!-- ===== Sección Servicios ===== -->
+<section id="servicios">
+  <h2>Servicios Financieros</h2>
+  <div class="servicios-grid">
+    
+    <!-- Tarjeta 1 -->
+    <div class="servicio">
+      <h3>Crédito Simple sin Garantía</h3>
+      <p><strong>Tasa fija:</strong> 29% a 39% anual<br>
+         <strong>Plazo:</strong> 12, 24 meses<br>
+         <strong>Monto:</strong> $50 mil a $1 millón</p>
+      <p><strong>Requisitos:</strong><br>
+         Buen buró de crédito<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="servicio">
+      <h3>Crédito con Garantía Inmobiliaria</h3>
+      <p><strong>Tasa fija:</strong> 20% a 32% anual<br>
+         <strong>Plazo:</strong> Hasta 120 meses<br>
+         <strong>Monto:</strong> $1 millón a $300 millones</p>
+      <p><strong>Requisitos:</strong><br>
+         Buró de crédito no determinante<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="servicio">
+      <h3>Crédito Revolvente con Garantía</h3>
+      <p><strong>Tasa:</strong> 24% a 27% anual<br>
+         <strong>Plazo:</strong> 6 a 36 meses<br>
+         <strong>Monto:</strong> $1 millón a $30 millones</p>
+      <p><strong>Requisitos:</strong><br>
+         Buró de crédito flexible<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="servicio">
+      <h3>Crédito Revolvente sin Garantía</h3>
+      <p><strong>Tasa:</strong> 28% a 33% anual<br>
+         <strong>Monto:</strong> $1 millón a $5 millones<br>
+         Línea de factoraje revolvente (1 año)</p>
+      <p><strong>Requisitos:</strong><br>
+         Facturar más de $80 millones anuales<br>
+         Buen buró de crédito<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="servicio">
+      <h3>Factoraje</h3>
+      <p><strong>Tasa fija:</strong> 1.5% a 4% mensual<br>
+         <strong>Plazo de pago:</strong> 30 a 120 días<br>
+         <strong>Monto:</strong> $200 mil a $140 millones<br>
+         Cubrimos facturas: 70% a 85%</p>
+      <p><strong>Requisitos:</strong><br>
+         Buen buró de crédito<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 6 -->
+    <div class="servicio">
+      <h3>Sale and Leaseback</h3>
+      <p><strong>Tasa:</strong> 25% a 29% anual<br>
+         <strong>Plazo:</strong> hasta 60 meses<br>
+         <strong>Monto:</strong> $500 mil a $120 millones<br>
+         Aforo 3:1 / 2:1, GPS incluido</p>
+      <p><strong>Requisitos:</strong><br>
+         Buen buró de crédito<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+    <!-- Tarjeta 7 -->
+    <div class="servicio">
+      <h3>Arrendamiento</h3>
+      <p><strong>Tasa fija:</strong> 25% a 29% anual<br>
+         <strong>Plazo:</strong> hasta 60 meses<br>
+         <strong>Monto:</strong> $500 mil a $300 millones<br>
+         Enganche: 10% a 25%</p>
+      <p><strong>Requisitos:</strong><br>
+         Buen buró de crédito<br>
+         1 año de operación<br>
+         Registrado ante el SAT</p>
+    </div>
+
+  </div>
+</section>
 
   <!-- ===== Testimonios ===== -->
   <section id="testimonios" class="testimonios">
