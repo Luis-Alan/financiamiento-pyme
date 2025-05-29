@@ -1,59 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Empresa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Empresa - Servicios Financieros</title>
   <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+      line-height: 1.6;
     }
- /* -------- Navegación -------- */
-    /* -------- Navegación -------- */
+
+    /* --- Header y navegación --- */
     header {
       background-color: #004080;
-      color: white;
-      padding: 15px 30px;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: auto;
     }
     .logo {
-      font-size: 1.5em;
-      font-weight: bold;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      user-select: none;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 1.5rem;
       margin: 0;
       padding: 0;
     }
     nav ul li a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #aad8ff;
+      outline: none;
     }
     .menu-toggle {
       display: none;
-      font-size: 1.5em;
+      font-size: 1.8rem;
       cursor: pointer;
+      user-select: none;
+      color: #fff;
+      background: transparent;
+      border: none;
     }
+
+    /* Responsive menu toggle */
     @media (max-width: 768px) {
       nav ul {
-        flex-direction: column;
-        display: none;
-        background-color: #003366;
         position: absolute;
         top: 60px;
         right: 0;
-        width: 200px;
-        padding: 10px;
+        background-color: #003366;
+        flex-direction: column;
+        width: 220px;
+        border-radius: 0 0 0 8px;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       }
       nav ul.show {
         display: flex;
@@ -63,339 +90,302 @@
       }
     }
 
-    /* -------- Secciones generales -------- */
-    section {
-      padding: 40px 20px;
+    /* --- Secciones generales --- */
+    main {
       max-width: 1000px;
-      margin: auto;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
     }
     h2 {
       color: #004080;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #444;
     }
 
-    /* -------- Misión y Visión -------- */
-    #nosotros p {
-      line-height: 1.6;
-    }
-
-
-    /* -------- Formulario -------- */
-    form label {
-      display: block;
-      margin-top: 10px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-    form button {
-      margin-top: 15px;
-      background: #004080;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background: #003366;
-    }
-
-    /* -------- Redes sociales -------- */
-    .redes a img {
-      margin: 10px;
-      transition: transform 0.2s;
-    }
-    .redes a img:hover {
-      transform: scale(1.1);
-    }
-    .redes {
-      text-align: center;
-    }
-
-    /* -------- Testimonios -------- */
-    .testimonios {
-      background-color: #f1f1f1;
-      text-align: center;
-    }
-    .testimonial {
-      margin: 20px auto;
-      max-width: 600px;
-      font-style: italic;
-      color: #333;
-    }
-    .testimonial strong {
-      display: block;
-      margin-top: 10px;
-      color: #004080;
-    }
-
-    /* -------- Pie de página -------- */
-    footer {
-      background-color: #00264d;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ===== Navegación ===== -->
-  <header>
-    <div class="nav-container">
-      <div class="logo">Mi Empresa</div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <nav>
-        <ul id="menu">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===== Misión y Visión ===== -->
-  <section id="nosotros">
-    <h2>Misión</h2>
-    <p>Nuestra misión es ofrecer soluciones de alta calidad que satisfagan las necesidades de nuestros clientes.</p>
-
-    <h2>Visión</h2>
-    <p>Ser líderes en el sector y referentes por nuestra innovación, compromiso y excelencia en el servicio.</p>
-  </section>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Servicios Financieros</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f8f9fa;
-    }
-
-    .servicios-section {
-      padding: 50px 20px;
-      background: #fff;
-      text-align: center;
-    }
-
-    .servicios-section h2 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #222;
-    }
-
+    /* --- Servicios con carrusel --- */
     .carousel-wrapper {
       overflow: hidden;
       position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
     }
-
     .carousel {
       display: flex;
-      gap: 20px;
+      gap: 1.25rem;
       animation: scroll 30s linear infinite;
+      padding-bottom: 1rem;
     }
-
-    .card {
-      flex: 0 0 350px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card svg {
-      width: 40px;
-      height: 40px;
-      fill: #0066cc;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin: 10px 0;
-      color: #333;
-      font-size: 1.2em;
-    }
-
-    .card p {
-      font-size: 0.95em;
-      color: #555;
-      margin: 5px 0;
-    }
-
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    .card {
+      flex: 0 0 320px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+    }
+    .card svg {
+      width: 40px;
+      height: 40px;
+      fill: #0066cc;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .card h3 {
+      margin: 0 0 0.75rem;
+      color: #222;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .card p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .card p strong {
+      color: #004080;
+    }
 
-    /* Responsive */
+    /* Responsive servicios */
     @media (max-width: 768px) {
       .carousel {
         animation: none;
         flex-wrap: wrap;
         justify-content: center;
       }
-
       .card {
         flex: 1 1 90%;
+        max-width: 400px;
       }
+    }
+
+    /* --- Testimonios --- */
+    .testimonios {
+      background-color: #f1f1f1;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      color: #333;
+      font-style: italic;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonial {
+      margin: 1.5rem 0;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-weight: 700;
+      color: #004080;
+    }
+
+    /* --- Formulario contacto --- */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #004080;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #004080;
+      outline: none;
+    }
+    form button {
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 700;
+    }
+    form button:hover,
+    form button:focus {
+      background-color: #003366;
+      outline: none;
+    }
+
+    /* --- Pie de página --- */
+    footer {
+      background-color: #00264d;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      user-select: none;
     }
   </style>
 </head>
 <body>
 
-<section class="servicios-section">
-  <h2>Servicios Financieros</h2>
-  <div class="carousel-wrapper">
-    <div class="carousel">
-      
-      <!-- TARJETAS (cada una con ícono SVG) -->
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7h20L12 2zm0 2.2L18.6 7H5.4L12 4.2zM2 9v11h20V9H2zm2 2h16v7H4v-7z"/></svg>
-        <h3>Crédito Simple sin Garantía</h3>
-        <p>Tasa fija: 29% a 39% anual</p>
-        <p>Plazos: 12, 24 meses</p>
-        <p>Monto: 50 mil a 1 millón</p>
-        <p><strong>Requisitos:</strong><br>Buen buró, 1 año operación, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M4 9V7h16v2H4zm0 4h16v2H4v-2zm0 4h10v2H4v-2z"/></svg>
-        <h3>Crédito con Garantía Inmobiliaria</h3>
-        <p>Tasa fija: 20% a 32% anual</p>
-        <p>Plazo: hasta 120 meses</p>
-        <p>Monto: 1 a 300 millones</p>
-        <p><strong>Requisitos:</strong><br>Buró flexible, 1 año operación, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm4 0h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
-        <h3>Crédito Revolvente con Garantía</h3>
-        <p>Tasa: 24% a 27% anual</p>
-        <p>Plazo: 6 a 36 meses</p>
-        <p>Monto: 1 a 30 millones</p>
-        <p><strong>Requisitos:</strong><br>Buró flexible, 1 año operación, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4zm0 14h16v2H4v-2zm0-10h16v2H4v-2zm0 4h10v2H4v-2z"/></svg>
-        <h3>Crédito Revolvente sin Garantía</h3>
-        <p>Tasa: 28% a 33% anual</p>
-        <p>Monto: 1 a 5 millones</p>
-        <p><strong>Requisitos:</strong><br>Facturar +80mdp, buen buró, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2zm0 4h18v2H3v-2z"/></svg>
-        <h3>Factoraje</h3>
-        <p>Tasa: 1.5% a 4% mensual</p>
-        <p>Plazo: 30 a 120 días</p>
-        <p>Monto: 200 mil a 140 millones</p>
-        <p><strong>Requisitos:</strong><br>Buen buró, 1 año operación, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 4.9-7 13-7 13S5 13.9 5 9a7 7 0 0 1 7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
-        <h3>Sale and Leaseback</h3>
-        <p>Tasa: 25% a 29% anual</p>
-        <p>Plazo: hasta 60 meses</p>
-        <p>Monto: 500 mil a 120 millones</p>
-        <p><strong>Requisitos:</strong><br>Buen buró, GPS, 1 año operación, SAT</p>
-      </div>
-
-      <div class="card">
-        <svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm2 2h16v12H4V6zm2 2v2h12V8H6zm0 4v2h8v-2H6z"/></svg>
-        <h3>Arrendamiento</h3>
-        <p>Tasa: 25% a 29% anual</p>
-        <p>Plazo: hasta 60 meses</p>
-        <p>Monto: 500 mil a 300 millones</p>
-        <p><strong>Requisitos:</strong><br>Buen buró, Enganche 10-25%, SAT</p>
-      </div>
-
-      <!-- Repetimos las tarjetas para que el carrusel fluya sin fin -->
-      <!-- Clonamos las primeras tarjetas -->
-      <div class="card">... (replica opcional para animación infinita) ...</div>
-
+  <!-- ===== Header y Navegación ===== -->
+  <header>
+    <div class="nav-container">
+      <div class="logo" tabindex="0">Mi Empresa</div>
+      <button class="menu-toggle" aria-label="Alternar menú" aria-expanded="false" aria-controls="menu" id="menu-toggle">☰</button>
+      <nav>
+        <ul id="menu" role="menu" aria-labelledby="menu-toggle">
+          <li role="none"><a href="#inicio" role="menuitem" tabindex="-1">Inicio</a></li>
+          <li role="none"><a href="#nosotros" role="menuitem" tabindex="-1">Nosotros</a></li>
+          <li role="none"><a href="#servicios" role="menuitem" tabindex="-1">Servicios</a></li>
+          <li role="none"><a href="#testimonios" role="menuitem" tabindex="-1">Testimonios</a></li>
+          <li role="none"><a href="#contacto" role="menuitem" tabindex="-1">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
+  <main>
+    <!-- ===== Sección Nosotros ===== -->
+    <section id="nosotros" tabindex="0">
+      <h2>Misión</h2>
+      <p>Nuestra misión es ofrecer soluciones de alta calidad que satisfagan las necesidades de nuestros clientes.</p>
 
+      <h2>Visión</h2>
+      <p>Ser líderes en el sector y referentes por nuestra innovación, compromiso y excelencia en el servicio.</p>
+    </section>
 
-  
-  <!-- ===== Testimonios ===== -->
-  <section id="testimonios" class="testimonios">
-    <h2>Testimonios</h2>
-    <div class="testimonial">
-      "Excelente servicio y atención personalizada. ¡Recomendado al 100%!"
-      <strong>- Ana Rodríguez</strong>
-    </div>
-    <div class="testimonial">
-      "Gracias a su equipo profesional, logramos mejorar nuestros procesos internos."
-      <strong>- Carlos Méndez</strong>
-    </div>
-  </section>
+    <!-- ===== Sección Servicios ===== -->
+    <section id="servicios" class="servicios-section" tabindex="0" aria-label="Servicios Financieros">
+      <h2>Servicios Financieros</h2>
+      <div class="carousel-wrapper" aria-live="polite" aria-atomic="true">
+        <div class="carousel" aria-roledescription="carousel" tabindex="0">
+          <article class="card" tabindex="0" role="group" aria-label="Servicio de Administración de Nómina">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
+            <h3>Administración de Nómina</h3>
+            <p>Gestión integral de nómina para empresas de todos los tamaños.</p>
+          </article>
 
-  <!-- ===== Formulario de contacto ===== -->
-  <section id="contacto">
-    <h2>Contáctanos</h2>
-    <form>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+          <article class="card" tabindex="0" role="group" aria-label="Servicio de Contabilidad">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="28" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M14 28h36" stroke="#0066cc" stroke-width="2"/></svg>
+            <h3>Contabilidad</h3>
+            <p>Lleva tus finanzas al día con nuestro servicio contable profesional.</p>
+          </article>
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
+          <article class="card" tabindex="0" role="group" aria-label="Servicio de Fiscalización">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><path d="M20 44h24v-4H20v4zM32 20v24" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
+            <h3>Fiscalización</h3>
+            <p>Asesoría para cumplir con todas las obligaciones fiscales y legales.</p>
+          </article>
 
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" name="telefono">
+          <article class="card" tabindex="0" role="group" aria-label="Servicio de Servicios de RRHH">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="20" r="8" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M12 52c0-11 40-11 40 0" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
+            <h3>Servicios de RRHH</h3>
+            <p>Soluciones en recursos humanos para mejorar la gestión del talento.</p>
+          </article>
 
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          <!-- Se pueden duplicar cards para simular el loop infinito si se quiere -->
+          <article class="card" tabindex="0" role="group" aria-label="Servicio de Administración de Nómina">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
+            <h3>Administración de Nómina</h3>
+            <p>Gestión integral de nómina para empresas de todos los tamaños.</p>
+          </article>
+          <!-- Repetición para animación -->
+        </div>
+      </div>
+    </section>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    <!-- ===== Sección Testimonios ===== -->
+    <section id="testimonios" tabindex="0" aria-label="Testimonios de Clientes">
+      <h2>Testimonios</h2>
+      <blockquote class="testimonios">
+        <p class="testimonial">"El servicio es impecable y siempre están dispuestos a ayudar. Mi empresa creció gracias a ellos."</p>
+        <footer><strong>Juan Pérez</strong>, CEO de Tecnología SA</footer>
+      </blockquote>
+      <blockquote class="testimonios">
+        <p class="testimonial">"Profesionales, responsables y eficientes. Los recomiendo ampliamente para gestión financiera."</p>
+        <footer><strong>María Gómez</strong>, Directora de Finanzas</footer>
+      </blockquote>
+    </section>
 
-  <!-- ===== Redes sociales ===== -->
-  <section class="redes">
-    <h2>Síguenos</h2>
-    <a href="https://wa.me/521XXXXXXXXXX" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/48/733/733585.png" alt="WhatsApp" width="40">
-    </a>
-    <a href="https://www.facebook.com/tuempresa" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/48/733/733547.png" alt="Facebook" width="40">
-    </a>
-    <a href="https://www.instagram.com/tuempresa" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/48/733/733558.png" alt="Instagram" width="40">
-    </a>
-  </section>
+    <!-- ===== Sección Contacto ===== -->
+    <section id="contacto" tabindex="0" aria-label="Formulario de contacto">
+      <h2>Contáctanos</h2>
+      <form action="#" method="POST" aria-describedby="contact-form-instructions">
+        <p id="contact-form-instructions">Por favor, completa el formulario para recibir más información.</p>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true" />
 
-  <!-- ===== Pie de página ===== -->
-  <footer>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="tu@email.com" required aria-required="true" />
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required aria-required="true"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer role="contentinfo">
     &copy; 2025 Mi Empresa. Todos los derechos reservados.
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
+    // Script para menú responsivo accesible
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      menuToggle.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('show');
-    }
+      if (!expanded) {
+        menu.querySelector('a').focus();
+      }
+    });
+
+    // Manejo de tab index en menú para teclado
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          menu.classList.remove('show');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.focus();
+        }
+      });
+    });
   </script>
+
 </body>
 </html>
