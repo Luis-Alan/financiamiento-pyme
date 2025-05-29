@@ -10,20 +10,15 @@
       --color-secundario: #e6f0ff;
       --color-fondo: #f4f6f8;
       --borde-radio: 12px;
-      --sombra: 0 2px 10px rgba(0, 0, 0, 0.05);
-      --color-texto: #333;
-      --btn-bg: #0052cc;
-      --btn-hover-bg: #003d99;
-      --btn-color: white;
-      --btn-radius: 6px;
-      --gap-cards: 1.5rem;
+      --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --transicion: 0.3s ease;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--color-fondo);
-      color: var(--color-texto);
+      color: #333;
       line-height: 1.6;
     }
 
@@ -50,31 +45,31 @@
       margin: auto;
     }
 
-    /* Contenedor flex para las tarjetas */
+    /* Contenedor flex para tarjetas */
     .cards-container {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--gap-cards);
-      justify-content: center;
+      gap: 1.5rem;
       margin-bottom: 2rem;
+      justify-content: center;
     }
 
     section.card {
       background: #fff;
+      flex: 1 1 300px; /* crece y encoge, base 300px */
+      max-width: 360px;
+      padding: 1.5rem;
       border-radius: var(--borde-radio);
       box-shadow: var(--sombra);
-      padding: 1.5rem;
-      flex: 1 1 280px; /* crece, encoge, base 280px */
-      max-width: 350px;
-      box-sizing: border-box;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: box-shadow var(--transicion), transform var(--transicion);
+      cursor: default;
       display: flex;
       flex-direction: column;
     }
 
     section.card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 82, 204, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 82, 204, 0.25);
+      transform: translateY(-6px);
     }
 
     h2 {
@@ -95,13 +90,19 @@
     }
 
     /* Formulario */
-    section.form-section {
+    .form-section {
       background-color: var(--color-secundario);
       border-radius: var(--borde-radio);
       padding: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto 3rem;
       box-shadow: var(--sombra);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .form-section h2 {
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+      text-align: center;
     }
 
     form {
@@ -127,24 +128,25 @@
     }
 
     button {
-      background-color: var(--btn-bg);
-      color: var(--btn-color);
+      background-color: var(--color-primario);
+      color: white;
       padding: 0.8rem;
       font-size: 1rem;
       font-weight: bold;
       border: none;
-      border-radius: var(--btn-radius);
+      border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: var(--btn-hover-bg);
+      background-color: #003d99;
     }
 
     #form-status {
       margin-top: 1rem;
       font-weight: bold;
+      text-align: center;
     }
 
     .error {
@@ -156,61 +158,23 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      position: relative;
-    }
-
-    /* Redes sociales container */
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-buttons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: var(--color-primario);
-      color: white;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .social-buttons a:hover {
-      background-color: var(--btn-hover-bg);
-    }
-
-    /* Iconos SVG para redes */
-    .social-buttons svg {
-      width: 22px;
-      height: 22px;
-      fill: white;
     }
 
     /* Responsivo */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
+    @media (max-width: 900px) {
+      .cards-container {
+        justify-content: center;
       }
-
-      header p {
-        font-size: 1rem;
+      section.card {
+        flex: 1 1 45%;
+        max-width: 45%;
       }
+    }
 
-      main {
-        padding: 1rem;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-      }
-
-      input, textarea, button {
-        font-size: 1rem;
+    @media (max-width: 600px) {
+      section.card {
+        flex: 1 1 100%;
+        max-width: 100%;
       }
     }
 
@@ -220,16 +184,7 @@
       }
 
       h2 {
-        font-size: 1.1rem;
-      }
-
-      .cards-container {
-        justify-content: center;
-      }
-
-      section.card {
-        max-width: 100%;
-        flex-basis: 100%;
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -241,7 +196,7 @@
   </header>
 
   <main>
-    <!-- Contenedor para tarjetas -->
+    <!-- Contenedor flex para tarjetas -->
     <div class="cards-container">
       <section class="card">
         <h2>Crédito Simple sin Garantía</h2>
@@ -252,7 +207,6 @@
           <li><strong>Requisitos:</strong> Buen buró, 1 año de operación, SAT</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Crédito con Garantía Inmobiliaria</h2>
         <ul>
@@ -262,7 +216,6 @@
           <li><strong>Monto:</strong> 1 a 300 mdp</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Crédito Revolvente con Garantía</h2>
         <ul>
@@ -271,7 +224,6 @@
           <li><strong>Tasa:</strong> 24% a 27%</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Crédito Revolvente sin Garantía</h2>
         <ul>
@@ -280,7 +232,6 @@
           <li><strong>Requisitos:</strong> Facturar &gt;80 mdp anuales, buen buró</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Factoraje</h2>
         <ul>
@@ -289,76 +240,66 @@
           <li><strong>Cobertura:</strong> 70% a 85%</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Sale and Leaseback</h2>
         <ul>
           <li><strong>Activos:</strong> Máquinas, transportes</li>
-          <li><strong>Monto:</strong> 1 a 30 mdp</li>
-          <li><strong>Tasa:</strong> 24% a 29%</li>
-          <li><strong>Plazo:</strong> 24 meses</li>
+          <li><strong>Monto:</strong> 500 mil a 120 mdp</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Arrendamiento</h2>
+        <ul>
+          <li><strong>Activos:</strong> Nuevos o seminuevos</li>
+          <li><strong>Monto:</strong> 500 mil a 300 mdp</li>
+          <li><strong>Tasa:</strong> 25% a 29%</li>
         </ul>
       </section>
     </div>
 
     <!-- Formulario de contacto -->
     <section class="form-section">
-      <h2>Contáctanos para más información</h2>
-      <form id="contact-form">
-        <input type="text" id="name" name="name" placeholder="Nombre completo" required />
-        <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
-        <input type="tel" id="phone" name="phone" placeholder="Teléfono" />
-        <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje" required></textarea>
-        <button type="submit">Enviar</button>
+      <h2>¿Te interesa alguno? ¡Contáctanos!</h2>
+      <form id="contact-form" action="https://formspree.io/f/mnnvaakg" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre completo" required />
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
+        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o consulta aquí..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
         <div id="form-status" role="alert" aria-live="polite"></div>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Financiamiento PyME. Todos los derechos reservados.</p>
-    <div class="social-buttons" aria-label="Redes sociales">
-      <a href="https://www.linkedin.com/company/financiamientopyme" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.12 8H4.88V24H.12V8zM8.12 8h4.57v2.23h.06c.63-1.2 2.18-2.47 4.49-2.47 4.8 0 5.69 3.16 5.69 7.27V24h-4.75v-7.49c0-1.78-.03-4.08-2.49-4.08-2.5 0-2.88 1.95-2.88 3.96V24H8.12V8z"/>
-        </svg>
-      </a>
-      <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.373 0 .02 5.38.02 12.028c0 2.118.553 4.181 1.6 6.003L0 24l6.22-1.63a11.91 11.91 0 005.78 1.5c6.626 0 12-5.373 12-12 0-3.204-1.253-6.214-3.48-8.39zM12 21.6a9.5 9.5 0 01-4.86-1.37l-.35-.21-3.69 1 1-3.6-.23-.36a9.57 9.57 0 01-1.47-5.01c0-5.28 4.29-9.57 9.57-9.57 2.56 0 4.97 1 6.78 2.8 1.8 1.8 2.8 4.23 2.8 6.78a9.56 9.56 0 01-9.57 9.57zm5.3-7.27c-.29-.15-1.72-.85-1.98-.94-.27-.08-.46-.13-.65.13-.19.27-.75.94-.92 1.13-.17.19-.34.21-.63.07-.29-.15-1.23-.45-2.34-1.43-.87-.77-1.46-1.72-1.63-2-.17-.28-.02-.43.13-.58.13-.13.29-.34.43-.51.15-.17.2-.28.3-.47.1-.19.05-.35-.02-.5-.07-.15-.65-1.57-.9-2.16-.24-.56-.48-.48-.65-.49-.17 0-.37-.01-.56-.01-.19 0-.5.07-.76.35-.26.27-1 1-1 2.45 0 1.44 1.03 2.84 1.17 3.04.15.19 2.02 3.08 4.9 4.31.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.97-1.38.25-.69.25-1.28.17-1.38-.08-.11-.27-.17-.56-.3z"/>
-        </svg>
-      </a>
-    </div>
+    <p>&copy; 2025 Financiamiento PyME | Contacto: <a href="mailto:luisalanlazarinicortez@gmail.com">luisalanlazarinicortez@gmail.com</a></p>
   </footer>
 
   <script>
-    // Script para enviar el formulario vía fetch (simulado)
-    const form = document.getElementById('contact-form');
-    const statusDiv = document.getElementById('form-status');
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      statusDiv.textContent = '';
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
 
-      if (!name || !email || !message) {
-        statusDiv.textContent = 'Por favor llena todos los campos obligatorios.';
-        statusDiv.classList.add('error');
-        return;
+        if (response.ok) {
+          status.innerText = "✅ ¡Mensaje enviado correctamente!";
+          status.className = "";
+          form.reset();
+        } else {
+          status.innerText = "❌ Hubo un error. Intenta más tarde.";
+          status.className = "error";
+        }
+      } catch (error) {
+        status.innerText = "❌ Error de conexión. Intenta nuevamente.";
+        status.className = "error";
       }
-
-      // Aquí podrías agregar validación extra, como formato de email
-
-      // Simular envío con fetch (puedes reemplazar con tu endpoint real)
-      statusDiv.textContent = 'Enviando...';
-      statusDiv.classList.remove('error');
-
-      setTimeout(() => {
-        statusDiv.textContent = 'Gracias por contactarnos. Pronto te responderemos.';
-        form.reset();
-      }, 1500);
     });
   </script>
 </body>
