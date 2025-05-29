@@ -3,389 +3,375 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi Empresa - Servicios Financieros</title>
+  <title>IMPULSO FINANCIERO PYME - Tu Socio Estratégico</title>
   <style>
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #222;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f7f9fc;
+      color: #003366;
     }
-
-    /* --- Header y navegación --- */
     header {
-      background-color: #004080;
-      color: #fff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #004a99;
+      color: white;
+      padding: 1rem;
+      text-align: center;
     }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      user-select: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
+    header h1 {
       margin: 0;
-      padding: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
     }
-    nav ul li a {
-      color: #fff;
+    nav {
+      background: #0066cc;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
       text-decoration: none;
       font-weight: 600;
-      padding: 0.5rem 0;
-      transition: color 0.3s ease;
+      font-size: 1rem;
     }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      color: #aad8ff;
-      outline: none;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      user-select: none;
-      color: #fff;
-      background: transparent;
-      border: none;
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
     }
 
-    /* Responsive menu toggle */
-    @media (max-width: 768px) {
-      nav ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #003366;
-        flex-direction: column;
-        width: 220px;
-        border-radius: 0 0 0 8px;
-        padding: 1rem;
-        display: none;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    /* --- Secciones generales --- */
     main {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     section {
       margin-bottom: 3rem;
-      background: #fff;
-      padding: 2rem;
+    }
+    section h2 {
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 1.5rem;
+    }
+
+    article.card {
+      background: white;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
+      box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    h2 {
-      color: #004080;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      font-size: 2rem;
+    article.card svg {
+      width: 48px;
+      height: 48px;
+      fill: #0066cc;
+      flex-shrink: 0;
     }
-    p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
+    article.card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      color: #004a99;
+    }
+    article.card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      color: #333;
+    }
+    article.card ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
       color: #444;
     }
-
-    /* --- Servicios con carrusel --- */
-    .carousel-wrapper {
-      overflow: hidden;
-      position: relative;
-    }
-    .carousel {
-      display: flex;
-      gap: 1.25rem;
-      animation: scroll 30s linear infinite;
-      padding-bottom: 1rem;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .card {
-      flex: 0 0 320px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
-      padding: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-    .card:hover,
-    .card:focus-within {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
-    }
-    .card svg {
-      width: 40px;
-      height: 40px;
-      fill: #0066cc;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .card h3 {
-      margin: 0 0 0.75rem;
-      color: #222;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-    .card p {
-      margin: 0.25rem 0;
-      font-size: 0.95rem;
-      color: #555;
-    }
-    .card p strong {
-      color: #004080;
+    article.card ul li {
+      margin-bottom: 0.3rem;
     }
 
-    /* Responsive servicios */
-    @media (max-width: 768px) {
-      .carousel {
-        animation: none;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .card {
-        flex: 1 1 90%;
-        max-width: 400px;
-      }
-    }
-
-    /* --- Testimonios --- */
-    .testimonios {
-      background-color: #f1f1f1;
-      padding: 2rem;
-      border-radius: 8px;
-      text-align: center;
-      color: #333;
-      font-style: italic;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .testimonial {
-      margin: 1.5rem 0;
-    }
-    .testimonial strong {
-      display: block;
-      margin-top: 0.75rem;
-      font-style: normal;
-      font-weight: 700;
-      color: #004080;
-    }
-
-    /* --- Formulario contacto --- */
     form {
-      max-width: 600px;
-      margin: 0 auto;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    form p#contact-form-instructions {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1rem;
     }
     form label {
       display: block;
-      margin-bottom: 0.3rem;
       font-weight: 600;
-      color: #004080;
+      margin-bottom: 0.3rem;
+      margin-top: 1rem;
     }
     form input, form textarea {
       width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 0.5rem;
       font-size: 1rem;
-      font-family: inherit;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
       transition: border-color 0.3s ease;
     }
     form input:focus, form textarea:focus {
-      border-color: #004080;
+      border-color: #0066cc;
       outline: none;
     }
+    form textarea {
+      resize: vertical;
+    }
     form button {
-      background-color: #004080;
+      margin-top: 1.5rem;
+      background-color: #0066cc;
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
       font-size: 1.1rem;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
       font-weight: 700;
+      transition: background-color 0.3s ease;
     }
     form button:hover,
     form button:focus {
+      background-color: #004a99;
+      outline: none;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    footer p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+    }
+
+    .social-buttons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background-color: #005bbb;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: background-color 0.3s ease;
+    }
+    .social-buttons a:hover,
+    .social-buttons a:focus {
       background-color: #003366;
       outline: none;
     }
 
-    /* --- Pie de página --- */
-    footer {
-      background-color: #00264d;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      user-select: none;
+    /* Simple icons from FontAwesome style */
+    .icon-whatsapp::before {
+      content: "📱";
     }
+    .icon-facebook::before {
+      content: "📘";
+    }
+    .icon-instagram::before {
+      content: "📸";
+    }
+    .icon-linkedin::before {
+      content: "💼";
+    }
+
   </style>
 </head>
 <body>
-
-  <!-- ===== Header y Navegación ===== -->
-  <header>
-    <div class="nav-container">
-      <div class="logo" tabindex="0">Mi Empresa</div>
-      <button class="menu-toggle" aria-label="Alternar menú" aria-expanded="false" aria-controls="menu" id="menu-toggle">☰</button>
-      <nav>
-        <ul id="menu" role="menu" aria-labelledby="menu-toggle">
-          <li role="none"><a href="#inicio" role="menuitem" tabindex="-1">Inicio</a></li>
-          <li role="none"><a href="#nosotros" role="menuitem" tabindex="-1">Nosotros</a></li>
-          <li role="none"><a href="#servicios" role="menuitem" tabindex="-1">Servicios</a></li>
-          <li role="none"><a href="#testimonios" role="menuitem" tabindex="-1">Testimonios</a></li>
-          <li role="none"><a href="#contacto" role="menuitem" tabindex="-1">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header role="banner">
+    <h1>IMPULSO FINANCIERO PYME</h1>
+    <p><em>Tu socio estratégico</em></p>
   </header>
 
+  <nav role="navigation" aria-label="Menú principal">
+    <a href="#servicios">Servicios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
   <main>
-    <!-- ===== Sección Nosotros ===== -->
-    <section id="nosotros" tabindex="0">
-      <h2>Misión</h2>
-      <p>Nuestra misión es ofrecer soluciones de alta calidad que satisfagan las necesidades de nuestros clientes.</p>
+    <section id="servicios" tabindex="0" aria-label="Servicios de crédito y factoraje">
+      <h2>Productos y Créditos</h2>
+      <div class="cards-container">
 
-      <h2>Visión</h2>
-      <p>Ser líderes en el sector y referentes por nuestra innovación, compromiso y excelencia en el servicio.</p>
-    </section>
+        <article class="card" tabindex="0" aria-label="Crédito Simple sin Garantía">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
+          <h3>Crédito Simple sin Garantía</h3>
+          <p><strong>Tasa fija promedio:</strong> 29% a 39% anual</p>
+          <p><strong>Plazos:</strong> 12, 24 meses</p>
+          <p><strong>Monto:</strong> 50 mil a 1 millón de pesos</p>
+          <p><strong>Requerimientos:</strong></p>
+          <ul>
+            <li>Buen buró de crédito</li>
+            <li>1 año de operación</li>
+            <li>Registrado ante el SAT</li>
+          </ul>
+        </article>
 
-    <!-- ===== Sección Servicios ===== -->
-    <section id="servicios" class="servicios-section" tabindex="0" aria-label="Servicios Financieros">
-      <h2>Servicios Financieros</h2>
-      <div class="carousel-wrapper" aria-live="polite" aria-atomic="true">
-        <div class="carousel" aria-roledescription="carousel" tabindex="0">
-          <article class="card" tabindex="0" role="group" aria-label="Servicio de Administración de Nómina">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
-            <h3>Administración de Nómina</h3>
-            <p>Gestión integral de nómina para empresas de todos los tamaños.</p>
-          </article>
+        <article class="card" tabindex="0" aria-label="Crédito con Garantía Inmobiliaria">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="14" y="20" width="36" height="28" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M14 28h36" stroke="#0066cc" stroke-width="2"/></svg>
+          <h3>Crédito con Garantía Inmobiliaria</h3>
+          <p><strong>Tipos de Inmuebles:</strong> Casa, departamento, oficina, local, bodega, naves industriales, terrenos urbanizados, hoteles, edificios, plaza.</p>
+          <p><strong>Tasa fija promedio:</strong> 20% a 32% anual</p>
+          <p><strong>Plazos:</strong> Hasta 120 meses</p>
+          <p><strong>Monto:</strong> 1 millón a 300 millones de pesos</p>
+          <p><strong>Requerimientos:</strong></p>
+          <ul>
+            <li>Buró de crédito no determinante</li>
+            <li>1 año de operación</li>
+            <li>Registrado ante el SAT</li>
+          </ul>
+        </article>
 
-          <article class="card" tabindex="0" role="group" aria-label="Servicio de Contabilidad">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="28" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M14 28h36" stroke="#0066cc" stroke-width="2"/></svg>
-            <h3>Contabilidad</h3>
-            <p>Lleva tus finanzas al día con nuestro servicio contable profesional.</p>
-          </article>
+        <article class="card" tabindex="0" aria-label="Crédito revolvente con garantía inmueble">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 10 L20 54 L44 54 Z" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
+          <h3>Crédito revolvente con garantía inmueble</h3>
+          <p><strong>Tipos de Inmuebles:</strong> Casa, departamento, oficina, local, bodega, naves industriales, hoteles, edificios, plaza.</p>
+          <p><strong>Monto:</strong> Desde 1 mdp a 30 mdp</p>
+          <p><strong>Tasa:</strong> 24% a 27% anual</p>
+          <p><strong>Plazo:</strong> 6 a 36 meses</p>
+          <p><strong>Requerimientos:</strong></p>
+          <ul>
+            <li>Buró de crédito flexible</li>
+            <li>1 año de operación</li>
+            <li>Registrado ante el SAT</li>
+          </ul>
+        </article>
 
-          <article class="card" tabindex="0" role="group" aria-label="Servicio de Fiscalización">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><path d="M20 44h24v-4H20v4zM32 20v24" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
-            <h3>Fiscalización</h3>
-            <p>Asesoría para cumplir con todas las obligaciones fiscales y legales.</p>
-          </article>
+        <article class="card" tabindex="0" aria-label="Crédito revolvente sin garantía">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="28" stroke="#0066cc" stroke-width="4" fill="none"/><line x1="16" y1="48" x2="48" y2="16" stroke="#0066cc" stroke-width="4"/></svg>
+          <h3>Crédito revolvente sin garantía</h3>
+          <p><strong>Monto:</strong> Desde 1 mdp a 5 mdp</p>
+          <p><strong>Tasa anual:</strong> 28% a 33%</p>
+          <p>Línea de factoraje revolvente con duración de un año</p>
+          <p><strong>Requerimientos:</strong></p>
+          <ul>
+            <li>Solo aplica a clientes que facturen más de 80 mdp anuales</li>
+            <li>Buen buró de crédito</li>
+            <li>1 año de operación</li>
+            <li>Registrado ante el SAT</li>
+          </ul>
+        </article>
 
-          <article class="card" tabindex="0" role="group" aria-label="Servicio de Servicios de RRHH">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="20" r="8" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M12 52c0-11 40-11 40 0" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
-            <h3>Servicios de RRHH</h3>
-            <p>Soluciones en recursos humanos para mejorar la gestión del talento.</p>
-          </article>
+        <article class="card" tabindex="0" aria-label="Factoraje">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
+          <h3>Factoraje</h3>
+          <p>Convierte tus facturas por cobrar (CFDI) en dinero al instante.</p>
+          <p>Pago a 30, 45 o 60 días según tus necesidades.</p>
+          <p>Desde $50,000 hasta $10,000,000.</p>
+          <p><strong>Requisitos:</strong></p>
+          <ul>
+            <li>CFDI validado y vigente</li>
+            <li>Cliente no debe estar en buró de crédito negativo</li>
+            <li>Empresa con al menos 1 año de operaciones</li>
+          </ul>
+        </article>
 
-          <!-- Se pueden duplicar cards para simular el loop infinito si se quiere -->
-          <article class="card" tabindex="0" role="group" aria-label="Servicio de Administración de Nómina">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
-            <h3>Administración de Nómina</h3>
-            <p>Gestión integral de nómina para empresas de todos los tamaños.</p>
-          </article>
-          <!-- Repetición para animación -->
-        </div>
       </div>
     </section>
 
-    <!-- ===== Sección Testimonios ===== -->
-    <section id="testimonios" tabindex="0" aria-label="Testimonios de Clientes">
+    <section id="testimonios" tabindex="0" aria-label="Testimonios de clientes">
       <h2>Testimonios</h2>
-      <blockquote class="testimonios">
-        <p class="testimonial">"El servicio es impecable y siempre están dispuestos a ayudar. Mi empresa creció gracias a ellos."</p>
-        <footer><strong>Juan Pérez</strong>, CEO de Tecnología SA</footer>
+      <blockquote>
+        <p>"IMPULSO FINANCIERO PYME nos apoyó con un crédito simple que nos permitió crecer sin complicaciones. Excelente servicio y atención."</p>
+        <footer>– Ana G., Empresaria</footer>
       </blockquote>
-      <blockquote class="testimonios">
-        <p class="testimonial">"Profesionales, responsables y eficientes. Los recomiendo ampliamente para gestión financiera."</p>
-        <footer><strong>María Gómez</strong>, Directora de Finanzas</footer>
+      <blockquote>
+        <p>"Su factoraje nos ayudó a mantener flujo de efectivo estable para cumplir con nuestros proveedores."</p>
+        <footer>– Carlos M., Distribuidor</footer>
       </blockquote>
     </section>
 
-    <!-- ===== Sección Contacto ===== -->
     <section id="contacto" tabindex="0" aria-label="Formulario de contacto">
-      <h2>Contáctanos</h2>
-      <form action="#" method="POST" aria-describedby="contact-form-instructions">
-        <p id="contact-form-instructions">Por favor, completa el formulario para recibir más información.</p>
+      <h2>Contacto</h2>
+      <form id="contactForm" aria-describedby="contact-form-instructions" novalidate>
+        <p id="contact-form-instructions">Envía tus dudas o solicitudes y te responderemos a la brevedad.</p>
+
         <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true" />
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required aria-required="true" />
 
         <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" placeholder="tu@email.com" required aria-required="true" />
+        <input type="email" id="correo" name="correo" placeholder="tuemail@ejemplo.com" required aria-required="true" />
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="(55) 1234 5678" pattern="[\d\s\-\+\(\)]{7,15}" aria-describedby="telefonoHelp" />
+        <small id="telefonoHelp" style="font-size:0.85rem; color:#666;">Opcional, pero útil para contacto rápido</small>
 
         <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required aria-required="true"></textarea>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
 
-        <button type="submit">Enviar</button>
+        <button type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
       </form>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer role="contentinfo">
-    &copy; 2025 Mi Empresa. Todos los derechos reservados.
+    <p>© 2024 IMPULSO FINANCIERO PYME - Todos los derechos reservados</p>
+    <div class="social-buttons" role="list" aria-label="Redes sociales">
+      <a href="https://wa.me/5215512345678" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="WhatsApp">
+        <span class="icon-whatsapp" aria-hidden="true"></span>
+      </a>
+      <a href="https://www.facebook.com/ImpulsoFinancieroPYME" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Facebook">
+        <span class="icon-facebook" aria-hidden="true"></span>
+      </a>
+      <a href="https://www.instagram.com/ImpulsoFinancieroPYME" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Instagram">
+        <span class="icon-instagram" aria-hidden="true"></span>
+      </a>
+      <a href="https://www.linkedin.com/company/impulsofinancieropyme" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
+        <span class="icon-linkedin" aria-hidden="true"></span>
+      </a>
+    </div>
   </footer>
 
   <script>
-    // Script para menú responsivo accesible
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      menu.classList.toggle('show');
-      if (!expanded) {
-        menu.querySelector('a').focus();
+    // Simple form validation example
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nombre = this.nombre.value.trim();
+      const correo = this.correo.value.trim();
+      const mensaje = this.mensaje.value.trim();
+      if (!nombre) {
+        alert('Por favor ingresa tu nombre completo.');
+        this.nombre.focus();
+        return;
       }
-    });
-
-    // Manejo de tab index en menú para teclado
-    const links = menu.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          menu.classList.remove('show');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.focus();
-        }
-      });
+      if (!correo) {
+        alert('Por favor ingresa un correo válido.');
+        this.correo.focus();
+        return;
+      }
+      if (!mensaje) {
+        alert('Por favor escribe un mensaje.');
+        this.mensaje.focus();
+        return;
+      }
+      alert('Gracias por contactarnos. Pronto recibirás una respuesta.');
+      this.reset();
     });
   </script>
-
 </body>
 </html>
