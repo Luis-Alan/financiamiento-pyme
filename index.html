@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Soluciones de Financiamiento PyME</title>
   <style>
     :root {
@@ -11,6 +11,10 @@
       --color-fondo: #f4f6f8;
       --borde-radio: 12px;
       --sombra: 0 2px 10px rgba(0, 0, 0, 0.05);
+      --color-whatsapp: #25d366;
+      --color-instagram: #e1306c;
+      --color-linkedin: #0077b5;
+      --color-facebook: #3b5998;
     }
 
     body {
@@ -42,29 +46,92 @@
       padding: 1.5rem;
       max-width: 1200px;
       margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
-    section {
+    .card {
       background: #fff;
-      margin-bottom: 2rem;
       padding: 1.5rem;
       border-radius: var(--borde-radio);
       box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    h2 {
+    .card h2 {
       color: var(--color-primario);
       margin-top: 0;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
-    ul {
+    .card ul {
       padding-left: 1.2rem;
-      margin: 0.5rem 0 0 0;
+      margin: 0.5rem 0 1rem 0;
     }
 
-    li {
-      margin-bottom: 0.5rem;
+    .card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .social-buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem 0;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Social colors */
+    .whatsapp {
+      background-color: var(--color-whatsapp);
+    }
+    .whatsapp:hover {
+      background-color: #1ebe5b;
+    }
+
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    }
+    .instagram:hover {
+      opacity: 0.85;
+    }
+
+    .linkedin {
+      background-color: var(--color-linkedin);
+    }
+    .linkedin:hover {
+      background-color: #005983;
+    }
+
+    .facebook {
+      background-color: var(--color-facebook);
+    }
+    .facebook:hover {
+      background-color: #2d4373;
+    }
+
+    /* Social icons SVG */
+    .social-buttons svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
     }
 
     footer {
@@ -72,56 +139,7 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-    }
-
-    .form-section {
-      background-color: var(--color-secundario);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    input, textarea {
-      padding: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--color-primario);
-      outline: none;
-    }
-
-    button {
-      background-color: var(--color-primario);
-      color: white;
-      padding: 0.8rem;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #003d99;
-    }
-
-    #form-status {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    .error {
-      color: red;
+      margin-top: 2rem;
     }
 
     @media (max-width: 768px) {
@@ -135,14 +153,11 @@
 
       main {
         padding: 1rem;
+        grid-template-columns: 1fr;
       }
 
-      h2 {
+      .card h2 {
         font-size: 1.3rem;
-      }
-
-      input, textarea, button {
-        font-size: 1rem;
       }
     }
 
@@ -151,7 +166,7 @@
         font-size: 1.5rem;
       }
 
-      h2 {
+      .card h2 {
         font-size: 1.1rem;
       }
     }
@@ -164,59 +179,143 @@
   </header>
 
   <main>
-    <!-- Secciones de financiamiento -->
-    <section><h2>Crédito Simple sin Garantía</h2><ul><li><strong>Tasa fija:</strong> 29% a 39% anual</li><li><strong>Plazos:</strong> 12, 24 meses</li><li><strong>Monto:</strong> 50 mil a 1 millón de pesos</li><li><strong>Requisitos:</strong> Buen buró, 1 año de operación, SAT</li></ul></section>
-    <section><h2>Crédito con Garantía Inmobiliaria</h2><ul><li><strong>Inmuebles:</strong> Casa, oficina, local, bodega</li><li><strong>Tasa:</strong> 20% a 32%</li><li><strong>Plazo:</strong> Hasta 120 meses</li><li><strong>Monto:</strong> 1 a 300 mdp</li></ul></section>
-    <section><h2>Crédito Revolvente con Garantía</h2><ul><li><strong>Inmuebles:</strong> Casa, bodega, local</li><li><strong>Monto:</strong> 1 a 30 mdp</li><li><strong>Tasa:</strong> 24% a 27%</li></ul></section>
-    <section><h2>Crédito Revolvente sin Garantía</h2><ul><li><strong>Monto:</strong> 1 a 5 mdp</li><li><strong>Tasa:</strong> 28% a 33%</li><li><strong>Requisitos:</strong> Facturar &gt;80 mdp anuales, buen buró</li></ul></section>
-    <section><h2>Factoraje</h2><ul><li><strong>Monto:</strong> 200 mil a 140 mdp</li><li><strong>Tasa:</strong> 1.5% a 4% mensual</li><li><strong>Cobertura:</strong> 70% a 85%</li></ul></section>
-    <section><h2>Sale and Leaseback</h2><ul><li><strong>Activos:</strong> Máquinas, transportes</li><li><strong>Monto:</strong> 500 mil a 120 mdp</li></ul></section>
-    <section><h2>Arrendamiento</h2><ul><li><strong>Activos:</strong> Nuevos o seminuevos</li><li><strong>Monto:</strong> 500 mil a 300 mdp</li><li><strong>Tasa:</strong> 25% a 29%</li></ul></section>
+    <!-- Tarjetas con info y redes sociales -->
 
-    <!-- Formulario de contacto -->
-    <section class="form-section">
-      <h2>¿Te interesa alguno? ¡Contáctanos!</h2>
-      <form id="contact-form" action="https://formspree.io/f/mnnvaakg" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre completo" required />
-        <input type="email" name="email" placeholder="Tu correo electrónico" required />
-        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o consulta aquí..." required></textarea>
-        <button type="submit">Enviar mensaje</button>
-        <div id="form-status" role="alert" aria-live="polite"></div>
-      </form>
+    <section class="card">
+      <h2>Crédito Simple sin Garantía</h2>
+      <ul>
+        <li><strong>Tasa fija promedio:</strong> 29% a 39% anual</li>
+        <li><strong>Plazos:</strong> 12, 24 meses</li>
+        <li><strong>Monto:</strong> 50 mil a 1 millón de pesos</li>
+      </ul>
+      <p><strong>Requerimiento:</strong></p>
+      <ul>
+        <li>Buen buró de crédito</li>
+        <li>1 año de operación</li>
+        <li>Registrado ante el SAT</li>
+      </ul>
+      <div class="social-buttons">
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" class="whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.03.03a11.958 11.958 0 0 0-8.43 3.5 11.953 11.953 0 0 0-3.54 8.44c0 2.1.56 4.17 1.62 5.99L.22 23.78l7.54-2.08a11.882 11.882 0 0 0 5.65 1.43h.02c6.64 0 12.03-5.41 12.03-12.07 0-3.22-1.25-6.24-3.98-8.54Zm-8.45 16.02a8.38 8.38 0 0 1-4.25-1.21l-.3-.18-4.47 1.24 1.22-4.35-.2-.33a8.386 8.386 0 0 1 1.27-11.16 8.435 8.435 0 0 1 11.93 1.86 8.377 8.377 0 0 1-8.9 13.83Zm4.2-5.75c-.22-.11-1.31-.65-1.51-.73-.2-.09-.34-.11-.48.11-.13.22-.52.72-.64.87-.12.15-.23.17-.43.06-.2-.11-.84-.31-1.6-.98-.59-.52-.99-1.16-1.11-1.38-.12-.22-.01-.34.1-.45.1-.1.22-.23.33-.35.11-.12.15-.2.22-.33.07-.13.03-.24-.01-.35-.04-.11-.48-1.16-.66-1.6-.17-.41-.35-.35-.48-.36-.12-.01-.26-.01-.4-.01-.13 0-.35.05-.54.24-.2.2-.76.74-.76 1.8s.78 2.08.89 2.22c.11.13 1.53 2.33 3.72 3.26.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.31-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.09-.22-.15-.44-.26Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/tuempresa" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5a4.25 4.25 0 0 0-4.24 4.25v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.25 2.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-4.25 1.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          Instagram
+        </a>
+        <a href="https://linkedin.com/company/tuempresa" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5a2.5 2.5 0 0 0 0-5Zm.02 4.5h-.01a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM2 9h6v12H2V9Zm7.5 0h5.3v1.75h.07a5.82 5.82 0 0 1 5.2-2.85c5.5 0 6.5 3.62 6.5 8.32V21h-6v-7.5c0-1.75-.03-4-2.44-4-2.43 0-2.8 1.9-2.8 3.88V21h-6V9h.01Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://facebook.com/tuempresa" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3v-3h2.3v-2.3c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .08 2 .08v2.3h-1.2c-1.2 0-1.5.7-1.5 1.4V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12Z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Arrendamiento Financiero</h2>
+      <ul>
+        <li><strong>Tasa fija:</strong> 19% a 22% anual</li>
+        <li><strong>Plazos:</strong> 36, 48, 60 meses</li>
+        <li><strong>Monto:</strong> 100 mil a 2 millones de pesos</li>
+      </ul>
+      <p><strong>Requerimiento:</strong></p>
+      <ul>
+        <li>Buen buró de crédito</li>
+        <li>3 años de operación</li>
+        <li>Garantía: maquinaria, equipo o inmueble</li>
+      </ul>
+      <div class="social-buttons">
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" class="whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.03.03a11.958 11.958 0 0 0-8.43 3.5 11.953 11.953 0 0 0-3.54 8.44c0 2.1.56 4.17 1.62 5.99L.22 23.78l7.54-2.08a11.882 11.882 0 0 0 5.65 1.43h.02c6.64 0 12.03-5.41 12.03-12.07 0-3.22-1.25-6.24-3.98-8.54Zm-8.45 16.02a8.38 8.38 0 0 1-4.25-1.21l-.3-.18-4.47 1.24 1.22-4.35-.2-.33a8.386 8.386 0 0 1 1.27-11.16 8.435 8.435 0 0 1 11.93 1.86 8.377 8.377 0 0 1-8.9 13.83Zm4.2-5.75c-.22-.11-1.31-.65-1.51-.73-.2-.09-.34-.11-.48.11-.13.22-.52.72-.64.87-.12.15-.23.17-.43.06-.2-.11-.84-.31-1.6-.98-.59-.52-.99-1.16-1.11-1.38-.12-.22-.01-.34.1-.45.1-.1.22-.23.33-.35.11-.12.15-.2.22-.33.07-.13.03-.24-.01-.35-.04-.11-.48-1.16-.66-1.6-.17-.41-.35-.35-.48-.36-.12-.01-.26-.01-.4-.01-.13 0-.35.05-.54.24-.2.2-.76.74-.76 1.8s.78 2.08.89 2.22c.11.13 1.53 2.33 3.72 3.26.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.31-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.09-.22-.15-.44-.26Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/tuempresa" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5a4.25 4.25 0 0 0-4.24 4.25v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.25 2.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-4.25 1.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          Instagram
+        </a>
+        <a href="https://linkedin.com/company/tuempresa" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5a2.5 2.5 0 0 0 0-5Zm.02 4.5h-.01a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM2 9h6v12H2V9Zm7.5 0h5.3v1.75h.07a5.82 5.82 0 0 1 5.2-2.85c5.5 0 6.5 3.62 6.5 8.32V21h-6v-7.5c0-1.75-.03-4-2.44-4-2.43 0-2.8 1.9-2.8 3.88V21h-6V9h.01Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://facebook.com/tuempresa" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3v-3h2.3v-2.3c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .08 2 .08v2.3h-1.2c-1.2 0-1.5.7-1.5 1.4V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12Z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Préstamos Bancarios PyME</h2>
+      <ul>
+        <li><strong>Tasa variable:</strong> 13% a 22% anual</li>
+        <li><strong>Plazos:</strong> 12 a 60 meses</li>
+        <li><strong>Monto:</strong> 200 mil a 5 millones de pesos</li>
+      </ul>
+      <p><strong>Requerimiento:</strong></p>
+      <ul>
+        <li>Buen buró de crédito</li>
+        <li>3 años de operación</li>
+        <li>Garantía y aval</li>
+      </ul>
+      <div class="social-buttons">
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" class="whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.03.03a11.958 11.958 0 0 0-8.43 3.5 11.953 11.953 0 0 0-3.54 8.44c0 2.1.56 4.17 1.62 5.99L.22 23.78l7.54-2.08a11.882 11.882 0 0 0 5.65 1.43h.02c6.64 0 12.03-5.41 12.03-12.07 0-3.22-1.25-6.24-3.98-8.54Zm-8.45 16.02a8.38 8.38 0 0 1-4.25-1.21l-.3-.18-4.47 1.24 1.22-4.35-.2-.33a8.386 8.386 0 0 1 1.27-11.16 8.435 8.435 0 0 1 11.93 1.86 8.377 8.377 0 0 1-8.9 13.83Zm4.2-5.75c-.22-.11-1.31-.65-1.51-.73-.2-.09-.34-.11-.48.11-.13.22-.52.72-.64.87-.12.15-.23.17-.43.06-.2-.11-.84-.31-1.6-.98-.59-.52-.99-1.16-1.11-1.38-.12-.22-.01-.34.1-.45.1-.1.22-.23.33-.35.11-.12.15-.2.22-.33.07-.13.03-.24-.01-.35-.04-.11-.48-1.16-.66-1.6-.17-.41-.35-.35-.48-.36-.12-.01-.26-.01-.4-.01-.13 0-.35.05-.54.24-.2.2-.76.74-.76 1.8s.78 2.08.89 2.22c.11.13 1.53 2.33 3.72 3.26.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.31-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.09-.22-.15-.44-.26Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/tuempresa" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5a4.25 4.25 0 0 0-4.24 4.25v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.25 2.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-4.25 1.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          Instagram
+        </a>
+        <a href="https://linkedin.com/company/tuempresa" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5a2.5 2.5 0 0 0 0-5Zm.02 4.5h-.01a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM2 9h6v12H2V9Zm7.5 0h5.3v1.75h.07a5.82 5.82 0 0 1 5.2-2.85c5.5 0 6.5 3.62 6.5 8.32V21h-6v-7.5c0-1.75-.03-4-2.44-4-2.43 0-2.8 1.9-2.8 3.88V21h-6V9h.01Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://facebook.com/tuempresa" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3v-3h2.3v-2.3c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .08 2 .08v2.3h-1.2c-1.2 0-1.5.7-1.5 1.4V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12Z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Créditos para Emprendedores</h2>
+      <ul>
+        <li><strong>Tasa fija:</strong> 25% anual</li>
+        <li><strong>Plazos:</strong> 12 a 24 meses</li>
+        <li><strong>Monto:</strong> 10 mil a 200 mil pesos</li>
+      </ul>
+      <p><strong>Requerimiento:</strong></p>
+      <ul>
+        <li>Buen historial crediticio</li>
+        <li>3 años de operación</li>
+        <li>Garantía</li>
+      </ul>
+      <div class="social-buttons">
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" class="whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.03.03a11.958 11.958 0 0 0-8.43 3.5 11.953 11.953 0 0 0-3.54 8.44c0 2.1.56 4.17 1.62 5.99L.22 23.78l7.54-2.08a11.882 11.882 0 0 0 5.65 1.43h.02c6.64 0 12.03-5.41 12.03-12.07 0-3.22-1.25-6.24-3.98-8.54Zm-8.45 16.02a8.38 8.38 0 0 1-4.25-1.21l-.3-.18-4.47 1.24 1.22-4.35-.2-.33a8.386 8.386 0 0 1 1.27-11.16 8.435 8.435 0 0 1 11.93 1.86 8.377 8.377 0 0 1-8.9 13.83Zm4.2-5.75c-.22-.11-1.31-.65-1.51-.73-.2-.09-.34-.11-.48.11-.13.22-.52.72-.64.87-.12.15-.23.17-.43.06-.2-.11-.84-.31-1.6-.98-.59-.52-.99-1.16-1.11-1.38-.12-.22-.01-.34.1-.45.1-.1.22-.23.33-.35.11-.12.15-.2.22-.33.07-.13.03-.24-.01-.35-.04-.11-.48-1.16-.66-1.6-.17-.41-.35-.35-.48-.36-.12-.01-.26-.01-.4-.01-.13 0-.35.05-.54.24-.2.2-.76.74-.76 1.8s.78 2.08.89 2.22c.11.13 1.53 2.33 3.72 3.26.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.31-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.09-.22-.15-.44-.26Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/tuempresa" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5a4.25 4.25 0 0 0-4.24 4.25v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.25 2.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-4.25 1.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          Instagram
+        </a>
+        <a href="https://linkedin.com/company/tuempresa" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5a2.5 2.5 0 0 0 0-5Zm.02 4.5h-.01a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM2 9h6v12H2V9Zm7.5 0h5.3v1.75h.07a5.82 5.82 0 0 1 5.2-2.85c5.5 0 6.5 3.62 6.5 8.32V21h-6v-7.5c0-1.75-.03-4-2.44-4-2.43 0-2.8 1.9-2.8 3.88V21h-6V9h.01Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://facebook.com/tuempresa" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3v-3h2.3v-2.3c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .08 2 .08v2.3h-1.2c-1.2 0-1.5.7-1.5 1.4V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12Z"/></svg>
+          Facebook
+        </a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Financiamiento PyME | Contacto: <a href="mailto:luisalanlazarinicortez@gmail.com">luisalanlazarinicortez@gmail.com</a></p>
+    <p>&copy; 2025 Tu Empresa. Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          status.innerText = "✅ ¡Mensaje enviado correctamente!";
-          status.className = "";
-          form.reset();
-        } else {
-          status.innerText = "❌ Hubo un error. Intenta más tarde.";
-          status.className = "error";
-        }
-      } catch (error) {
-        status.innerText = "❌ Error de conexión. Intenta nuevamente.";
-        status.className = "error";
-      }
-    });
-  </script>
 </body>
 </html>
