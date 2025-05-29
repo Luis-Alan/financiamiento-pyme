@@ -77,47 +77,7 @@
     #nosotros p {
       line-height: 1.6;
     }
-/* -------- Sección Servicios -------- */
-#servicios h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
 
-.servicios-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.servicio {
-  background-color: #f9f9f9;
-  border-left: 5px solid #004080;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  width: 100%;
-  max-width: 400px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-.servicio:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-}
-
-/* Animación de entrada */
-@keyframes fadeInUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
 
     /* -------- Formulario -------- */
     form label {
@@ -208,102 +168,190 @@
     <h2>Visión</h2>
     <p>Ser líderes en el sector y referentes por nuestra innovación, compromiso y excelencia en el servicio.</p>
   </section>
-<!-- ===== Sección Servicios ===== -->
+
+<!-- ======= Servicios (Carrusel Automático + Íconos) ======= -->
 <section id="servicios">
   <h2>Servicios Financieros</h2>
-  <div class="servicios-grid">
-    
-    <!-- Tarjeta 1 -->
-    <div class="servicio">
-      <h3>Crédito Simple sin Garantía</h3>
-      <p><strong>Tasa fija:</strong> 29% a 39% anual<br>
-         <strong>Plazo:</strong> 12, 24 meses<br>
-         <strong>Monto:</strong> $50 mil a $1 millón</p>
-      <p><strong>Requisitos:</strong><br>
-         Buen buró de crédito<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
+
+  <div class="carousel-container">
+    <div class="carousel" id="serviciosCarousel">
+      
+      <div class="servicio-card">
+        <h3>💳 Crédito Simple sin Garantía</h3>
+        <p><strong>Tasa:</strong> 29% a 39% anual<br>
+           <strong>Plazo:</strong> 12, 24 meses<br>
+           <strong>Monto:</strong> $50 mil a $1 millón</p>
+        <p><strong>Requisitos:</strong><br>
+           Buen buró, 1 año operación, SAT</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>🏠 Crédito con Garantía Inmobiliaria</h3>
+        <p><strong>Tasa:</strong> 20% a 32% anual<br>
+           <strong>Plazo:</strong> hasta 120 meses<br>
+           <strong>Monto:</strong> $1M a $300M</p>
+        <p><strong>Requisitos:</strong><br>
+           Buró no determinante, SAT, 1 año</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>🔁 Crédito Revolvente con Garantía</h3>
+        <p><strong>Tasa:</strong> 24% a 27% anual<br>
+           <strong>Plazo:</strong> 6 a 36 meses<br>
+           <strong>Monto:</strong> $1M a $30M</p>
+        <p><strong>Requisitos:</strong><br>
+           Buró flexible, 1 año, SAT</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>💼 Crédito Revolvente sin Garantía</h3>
+        <p><strong>Tasa:</strong> 28% a 33% anual<br>
+           <strong>Monto:</strong> $1M a $5M<br>
+           Línea de factoraje 1 año</p>
+        <p><strong>Requisitos:</strong><br>
+           Buen buró, SAT, 80M+ facturación</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>🧾 Factoraje</h3>
+        <p><strong>Tasa:</strong> 1.5% a 4% mensual<br>
+           <strong>Plazo:</strong> 30 a 120 días<br>
+           <strong>Monto:</strong> $200K a $140M</p>
+        <p><strong>Requisitos:</strong><br>
+           Buen buró, SAT, 1 año</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>🏗️ Sale and Leaseback</h3>
+        <p><strong>Tasa:</strong> 25% a 29%<br>
+           <strong>Plazo:</strong> hasta 60 meses<br>
+           <strong>Monto:</strong> $500K a $120M</p>
+        <p><strong>Requisitos:</strong><br>
+           Buen buró, SAT, GPS, 1 año</p>
+      </div>
+
+      <div class="servicio-card">
+        <h3>🚚 Arrendamiento</h3>
+        <p><strong>Tasa:</strong> 25% a 29%<br>
+           <strong>Plazo:</strong> hasta 60 meses<br>
+           <strong>Monto:</strong> $500K a $300M</p>
+        <p><strong>Requisitos:</strong><br>
+           Buen buró, 10–25% enganche, SAT</p>
+      </div>
+
     </div>
 
-    <!-- Tarjeta 2 -->
-    <div class="servicio">
-      <h3>Crédito con Garantía Inmobiliaria</h3>
-      <p><strong>Tasa fija:</strong> 20% a 32% anual<br>
-         <strong>Plazo:</strong> Hasta 120 meses<br>
-         <strong>Monto:</strong> $1 millón a $300 millones</p>
-      <p><strong>Requisitos:</strong><br>
-         Buró de crédito no determinante<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
-    <!-- Tarjeta 3 -->
-    <div class="servicio">
-      <h3>Crédito Revolvente con Garantía</h3>
-      <p><strong>Tasa:</strong> 24% a 27% anual<br>
-         <strong>Plazo:</strong> 6 a 36 meses<br>
-         <strong>Monto:</strong> $1 millón a $30 millones</p>
-      <p><strong>Requisitos:</strong><br>
-         Buró de crédito flexible<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
-    <!-- Tarjeta 4 -->
-    <div class="servicio">
-      <h3>Crédito Revolvente sin Garantía</h3>
-      <p><strong>Tasa:</strong> 28% a 33% anual<br>
-         <strong>Monto:</strong> $1 millón a $5 millones<br>
-         Línea de factoraje revolvente (1 año)</p>
-      <p><strong>Requisitos:</strong><br>
-         Facturar más de $80 millones anuales<br>
-         Buen buró de crédito<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
-    <!-- Tarjeta 5 -->
-    <div class="servicio">
-      <h3>Factoraje</h3>
-      <p><strong>Tasa fija:</strong> 1.5% a 4% mensual<br>
-         <strong>Plazo de pago:</strong> 30 a 120 días<br>
-         <strong>Monto:</strong> $200 mil a $140 millones<br>
-         Cubrimos facturas: 70% a 85%</p>
-      <p><strong>Requisitos:</strong><br>
-         Buen buró de crédito<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
-    <!-- Tarjeta 6 -->
-    <div class="servicio">
-      <h3>Sale and Leaseback</h3>
-      <p><strong>Tasa:</strong> 25% a 29% anual<br>
-         <strong>Plazo:</strong> hasta 60 meses<br>
-         <strong>Monto:</strong> $500 mil a $120 millones<br>
-         Aforo 3:1 / 2:1, GPS incluido</p>
-      <p><strong>Requisitos:</strong><br>
-         Buen buró de crédito<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
-    <!-- Tarjeta 7 -->
-    <div class="servicio">
-      <h3>Arrendamiento</h3>
-      <p><strong>Tasa fija:</strong> 25% a 29% anual<br>
-         <strong>Plazo:</strong> hasta 60 meses<br>
-         <strong>Monto:</strong> $500 mil a $300 millones<br>
-         Enganche: 10% a 25%</p>
-      <p><strong>Requisitos:</strong><br>
-         Buen buró de crédito<br>
-         1 año de operación<br>
-         Registrado ante el SAT</p>
-    </div>
-
+    <!-- Controles -->
+    <button class="nav-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+    <button class="nav-btn right" onclick="scrollCarousel(1)">&#10095;</button>
   </div>
 </section>
 
+<!-- ======= Estilos ======= -->
+<style>
+  #servicios {
+    padding: 60px 20px;
+    background: #f8f8f8;
+  }
+
+  #servicios h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #003366;
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .servicio-card {
+    background: white;
+    min-width: 280px;
+    max-width: 300px;
+    border-left: 5px solid #004080;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #004080;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.8;
+  }
+
+  .nav-btn:hover {
+    opacity: 1;
+  }
+
+  .nav-btn.left { left: 0; }
+  .nav-btn.right { right: 0; }
+
+  @media (max-width: 768px) {
+    .nav-btn {
+      font-size: 18px;
+      padding: 8px;
+    }
+    .servicio-card {
+      min-width: 90%;
+    }
+  }
+</style>
+
+<!-- ======= Script ======= -->
+<script>
+  const carousel = document.getElementById('serviciosCarousel');
+  const cardWidth = carousel.querySelector('.servicio-card').offsetWidth + 20;
+
+  function scrollCarousel(direction) {
+    carousel.scrollBy({
+      left: direction * cardWidth,
+      behavior: 'smooth'
+    });
+  }
+
+  // Auto scroll every 5 seconds
+  setInterval(() => {
+    if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 5) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      scrollCarousel(1);
+    }
+  }, 5000);
+</script>
+
+  
   <!-- ===== Testimonios ===== -->
   <section id="testimonios" class="testimonios">
     <h2>Testimonios</h2>
