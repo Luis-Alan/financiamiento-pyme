@@ -3,156 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulario de Contacto</title>
+  <title>Inicio</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f4f4f4;
     }
-    h1 {
-      text-align: center;
-      color: #333;
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 15px 30px;
     }
-    form {
-      max-width: 600px;
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
       margin: auto;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    label {
-      display: block;
-      margin: 15px 0 5px;
+
+    .logo {
+      font-size: 1.5em;
       font-weight: bold;
     }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
     }
-    button {
-      background: #28a745;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #218838;
-    }
-    #form-status {
-      text-align: center;
-      margin-top: 10px;
-      color: #555;
-    }
-    .social-links {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .social-links a {
-      margin: 0 10px;
+
+    nav ul li a {
       text-decoration: none;
       color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      display: inline-block;
+      font-weight: bold;
+      transition: color 0.3s;
     }
-    .facebook { background: #3b5998; }
-    .twitter { background: #1da1f2; }
-    .instagram { background: #e1306c; }
-    .whatsapp { background: #25d366; }
-    .info-section {
-      max-width: 700px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    nav ul li a:hover {
+      color: #00ccff;
     }
-    .info-section h2 {
-      color: #333;
-      margin-bottom: 10px;
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: #003366;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+      }
     }
-    .info-section p {
-      color: #555;
-      line-height: 1.6;
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
 
-  <h1>Contáctanos</h1>
-  <form id="contact-form" action="https://formspree.io/f/tu-codigo" method="POST">
-    <label for="name">Nombre:</label>
-    <input type="text" name="name" id="name" required />
-
-    <label for="email">Correo electrónico:</label>
-    <input type="email" name="email" id="email" required />
-
-    <label for="phone">Teléfono:</label>
-    <input type="tel" name="phone" id="phone" required />
-
-    <label for="message">Mensaje:</label>
-    <textarea name="message" id="message" rows="5" required></textarea>
-
-    <input type="hidden" name="_subject" value="Nuevo mensaje del formulario">
-    <input type="hidden" name="_cc" value="tucorreo@ejemplo.com">
-
-    <button type="submit">Enviar</button>
-    <div id="form-status"></div>
-  </form>
-
-  <div class="social-links">
-    <a href="https://facebook.com/tu-pagina" target="_blank" class="facebook">Facebook</a>
-    <a href="https://twitter.com/tu-pagina" target="_blank" class="twitter">Twitter</a>
-    <a href="https://instagram.com/tu-pagina" target="_blank" class="instagram">Instagram</a>
-    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp">WhatsApp</a>
-  </div>
-
-  <div class="info-section">
-    <h2>Misión</h2>
-    <p><!-- Aquí puedes escribir la misión de tu empresa o proyecto --></p>
-
-    <h2>Visión</h2>
-    <p><!-- Aquí puedes escribir la visión de tu empresa o proyecto --></p>
-  </div>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Mi Sitio</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      status.textContent = 'Enviando...';
-
-      const formData = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          status.textContent = '¡Mensaje enviado con éxito! Gracias por contactarnos.';
-          form.reset();
-        } else {
-          const data = await response.json();
-          if (data.errors) {
-            status.textContent = data.errors.map(err => err.message).join(', ');
-          } else {
-            status.textContent = 'Error al enviar el formulario. Por favor, intenta de nuevo.';
-          }
-        }
-      } catch (error) {
-        status.textContent = 'Error al enviar el formulario. Por favor, verifica tu conexión e intenta otra vez.';
-      }
-    });
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
   </script>
+
 </body>
 </html>
