@@ -1,377 +1,366 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IMPULSO FINANCIERO PYME - Tu Socio Estratégico</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f7f9fc;
-      color: #003366;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Impulso Financiero PyME - Carrusel de Créditos</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9fafb;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004a99;
+  }
+  .carousel-container {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .card {
+    min-width: 100%;
+    padding: 25px 30px;
+    box-sizing: border-box;
+  }
+  .card h2 {
+    color: #0059b3;
+    margin-top: 0;
+  }
+  .card p, .card ul {
+    margin: 10px 0 15px 0;
+    line-height: 1.5;
+  }
+  .card ul {
+    padding-left: 20px;
+  }
+  .card strong {
+    color: #222;
+  }
+  /* Botones carrusel */
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0073e6;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    user-select: none;
+    transition: background 0.3s ease;
+    z-index: 10;
+  }
+  .carousel-button:hover {
+    background: #005bb5;
+  }
+  .carousel-button.prev {
+    left: 15px;
+  }
+  .carousel-button.next {
+    right: 15px;
+  }
+
+  /* Formulario */
+  form {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #004a99;
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  form input[type="text"], form input[type="email"], form input[type="tel"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  form button {
+    background: #0073e6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  form button:hover {
+    background: #005bb5;
+  }
+
+  /* Redes sociales y WhatsApp */
+  .contact-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .contact-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #25d366; /* WhatsApp green */
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  .contact-buttons a.whatsapp {
+    background: #25d366;
+  }
+  .contact-buttons a.whatsapp:hover {
+    background: #1ebe57;
+  }
+  .contact-buttons a.facebook {
+    background: #3b5998;
+  }
+  .contact-buttons a.facebook:hover {
+    background: #2d4373;
+  }
+  .contact-buttons a.twitter {
+    background: #1da1f2;
+  }
+  .contact-buttons a.twitter:hover {
+    background: #0d95e8;
+  }
+  .contact-buttons a.linkedin {
+    background: #0077b5;
+  }
+  .contact-buttons a.linkedin:hover {
+    background: #005983;
+  }
+
+  /* Iconos redes sociales */
+  .contact-buttons a svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .card p, .card ul {
+      font-size: 14px;
     }
-    header {
-      background-color: #004a99;
-      color: white;
-      padding: 1rem;
-      text-align: center;
+    .contact-buttons {
+      flex-wrap: wrap;
     }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-    nav {
-      background: #0066cc;
-      padding: 0.5rem;
-      display: flex;
+    .contact-buttons a {
+      flex: 1 1 40%;
       justify-content: center;
-      gap: 2rem;
+      font-size: 14px;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    nav a:hover,
-    nav a:focus {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-    section h2 {
-      border-bottom: 3px solid #0066cc;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 1.5rem;
-    }
-
-    article.card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 3px 7px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    article.card svg {
-      width: 48px;
-      height: 48px;
-      fill: #0066cc;
-      flex-shrink: 0;
-    }
-    article.card h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.3rem;
-      color: #004a99;
-    }
-    article.card p {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.3;
-      color: #333;
-    }
-    article.card ul {
-      margin: 0.5rem 0 0 1.2rem;
-      padding: 0;
-      color: #444;
-    }
-    article.card ul li {
-      margin-bottom: 0.3rem;
-    }
-
-    form {
-      background: white;
-      padding: 1.5rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: auto;
-    }
-    form p#contact-form-instructions {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-    form label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      margin-top: 1rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1.5px solid #ccc;
-      border-radius: 5px;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      border-color: #0066cc;
-      outline: none;
-    }
-    form textarea {
-      resize: vertical;
-    }
-    form button {
-      margin-top: 1.5rem;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-    }
-    form button:hover,
-    form button:focus {
-      background-color: #004a99;
-      outline: none;
-    }
-
-    footer {
-      background-color: #003366;
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      position: relative;
-    }
-    footer p {
-      margin: 0.3rem 0;
-      font-size: 0.9rem;
-    }
-
-    .social-buttons {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .social-buttons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      background-color: #005bbb;
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      font-size: 1.4rem;
-      transition: background-color 0.3s ease;
-    }
-    .social-buttons a:hover,
-    .social-buttons a:focus {
-      background-color: #003366;
-      outline: none;
-    }
-
-    /* Simple icons from FontAwesome style */
-    .icon-whatsapp::before {
-      content: "📱";
-    }
-    .icon-facebook::before {
-      content: "📘";
-    }
-    .icon-instagram::before {
-      content: "📸";
-    }
-    .icon-linkedin::before {
-      content: "💼";
-    }
-
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header role="banner">
-    <h1>IMPULSO FINANCIERO PYME</h1>
-    <p><em>Tu socio estratégico</em></p>
-  </header>
 
-  <nav role="navigation" aria-label="Menú principal">
-    <a href="#servicios">Servicios</a>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<h1>IMPULSO FINANCIERO PYME - TU SOCIO ESTRATÉGICO</h1>
 
-  <main>
-    <section id="servicios" tabindex="0" aria-label="Servicios de crédito y factoraje">
-      <h2>Productos y Créditos</h2>
-      <div class="cards-container">
+<div class="carousel-container" aria-label="Carrusel de tipos de crédito">
+  <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
+  <div class="carousel-track">
+    <!-- Tarjetas generadas por JS -->
+  </div>
+  <button class="carousel-button next" aria-label="Siguiente">&#10095;</button>
+</div>
 
-        <article class="card" tabindex="0" aria-label="Crédito Simple sin Garantía">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
-          <h3>Crédito Simple sin Garantía</h3>
-          <p><strong>Tasa fija promedio:</strong> 29% a 39% anual</p>
-          <p><strong>Plazos:</strong> 12, 24 meses</p>
-          <p><strong>Monto:</strong> 50 mil a 1 millón de pesos</p>
-          <p><strong>Requerimientos:</strong></p>
-          <ul>
-            <li>Buen buró de crédito</li>
-            <li>1 año de operación</li>
-            <li>Registrado ante el SAT</li>
-          </ul>
-        </article>
+<form id="contactForm" aria-label="Formulario de contacto">
+  <h3>Contacto / Solicita Información</h3>
+  <label for="nombre">Nombre completo</label>
+  <input type="text" id="nombre" name="nombre" required />
+  <label for="correo">Correo electrónico</label>
+  <input type="email" id="correo" name="correo" required />
+  <label for="telefono">Teléfono</label>
+  <input type="tel" id="telefono" name="telefono" required />
+  <button type="submit">Enviar</button>
 
-        <article class="card" tabindex="0" aria-label="Crédito con Garantía Inmobiliaria">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="14" y="20" width="36" height="28" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M14 28h36" stroke="#0066cc" stroke-width="2"/></svg>
-          <h3>Crédito con Garantía Inmobiliaria</h3>
-          <p><strong>Tipos de Inmuebles:</strong> Casa, departamento, oficina, local, bodega, naves industriales, terrenos urbanizados, hoteles, edificios, plaza.</p>
-          <p><strong>Tasa fija promedio:</strong> 20% a 32% anual</p>
-          <p><strong>Plazos:</strong> Hasta 120 meses</p>
-          <p><strong>Monto:</strong> 1 millón a 300 millones de pesos</p>
-          <p><strong>Requerimientos:</strong></p>
-          <ul>
-            <li>Buró de crédito no determinante</li>
-            <li>1 año de operación</li>
-            <li>Registrado ante el SAT</li>
-          </ul>
-        </article>
+  <div class="contact-buttons" aria-label="Botones de contacto y redes sociales">
+    <a href="https://wa.me/5215551234567" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.89 11.89 0 0012 0a11.93 11.93 0 00-10.74 16.82l-1.34 4.88 5.04-1.33a11.91 11.91 0 0010.56-16.89zm-1.43 14.54a9.12 9.12 0 01-7.38 3.82 9.11 9.11 0 01-8.57-6.32l-.3-.88 1.67-.4a.75.75 0 01.79.26l2.3 2.94a.75.75 0 01-.1 1.03l-1.3 1a7.14 7.14 0 005.77 2.55 7.16 7.16 0 005.7-3.56 7.12 7.12 0 00.38-6.4l-1.48-2.8a.74.74 0 00-1-.34l-1.45.58a.75.75 0 00-.38 1.06l.82 1.51a.75.75 0 01-.22.96l-1.16.92a.75.75 0 01-1 .04l-2.08-1.83a.75.75 0 01-.08-1.04l1.23-1.39a.75.75 0 00.07-1.05l-1.72-2.15a.75.75 0 00-1.13-.03L5 9.13a.75.75 0 00-.22.93l1.17 3.43a.75.75 0 01-.9.9l-2.87-.61a.74.74 0 00-.94.5l-.41 1.47a9.16 9.16 0 018.82-5.27 9.12 9.12 0 016.24 3.72 9.13 9.13 0 011.28 7.53z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://facebook.com/impulsofinancieropyme" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.406.597 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.764v2.313h3.588l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.406 24 22.674V1.326C24 .593 23.403 0 22.675 0z"/></svg>
+      Facebook
+    </a>
+    <a href="https://twitter.com/impulsofinpyme" target="_blank" rel="noopener noreferrer" class="twitter" aria-label="Twitter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557a9.828 9.828 0 01-2.828.775 4.933 4.933 0 002.164-2.724 9.865 9.865 0 01-3.127 1.195 4.916 4.916 0 00-8.373 4.482A13.95 13.95 0 011.671 3.149a4.914 4.914 0 001.523 6.55 4.897 4.897 0 01-2.228-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.904 4.904 0 01-2.224.085 4.917 4.917 0 004.588 3.415A9.867 9.867 0 010 21.539 13.905 13.905 0 007.548 24c9.142 0 14.307-7.721 13.995-14.646A9.936 9.936 0 0024 4.557z"/></svg>
+      Twitter
+    </a>
+    <a href="https://linkedin.com/company/impulsofinancieropyme" target="_blank" rel="noopener noreferrer" class="linkedin" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.028-3.039-1.851-3.039-1.851 0-2.134 1.445-2.134 2.939v5.669h-3.553V9h3.413v1.561h.047c.475-.9 1.635-1.85 3.362-1.85 3.594 0 4.26 2.367 4.26 5.451v6.29zM5.337 7.433a2.07 2.07 0 110-4.139 2.07 2.07 0 010 4.139zM6.889 20.452H3.786V9h3.103v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.224.792 24 1.771 24h20.451C23.2 24 24 23.224 24 22.271V1.728C24 .774 23.2 0 22.225 0z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</form>
 
-        <article class="card" tabindex="0" aria-label="Crédito revolvente con garantía inmueble">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 10 L20 54 L44 54 Z" stroke="#0066cc" stroke-width="4" fill="none"/></svg>
-          <h3>Crédito revolvente con garantía inmueble</h3>
-          <p><strong>Tipos de Inmuebles:</strong> Casa, departamento, oficina, local, bodega, naves industriales, hoteles, edificios, plaza.</p>
-          <p><strong>Monto:</strong> Desde 1 mdp a 30 mdp</p>
-          <p><strong>Tasa:</strong> 24% a 27% anual</p>
-          <p><strong>Plazo:</strong> 6 a 36 meses</p>
-          <p><strong>Requerimientos:</strong></p>
-          <ul>
-            <li>Buró de crédito flexible</li>
-            <li>1 año de operación</li>
-            <li>Registrado ante el SAT</li>
-          </ul>
-        </article>
+<script>
+  // Datos de cada tipo de crédito para el carrusel
+  const cardsData = [
+    {
+      title: "Crédito Empresarial",
+      content: `
+        <p><strong>Para:</strong> Empresas en crecimiento que buscan capital para expansión o inversiones.</p>
+        <ul>
+          <li>Monto: desde $100,000 hasta $5,000,000</li>
+          <li>Plazo: hasta 60 meses</li>
+          <li>Tasa de interés competitiva</li>
+          <li>Requisitos: Estados financieros y comprobante de actividad</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito para Mujeres",
+      content: `
+        <p><strong>Para:</strong> Mujeres emprendedoras y empresarias que requieren financiamiento.</p>
+        <ul>
+          <li>Monto: desde $50,000 hasta $1,000,000</li>
+          <li>Plazo: hasta 48 meses</li>
+          <li>Tasa preferencial</li>
+          <li>Asesoría personalizada y apoyo en el trámite</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito para PyMES",
+      content: `
+        <p><strong>Para:</strong> Pequeñas y medianas empresas con necesidades de capital de trabajo o inversión.</p>
+        <ul>
+          <li>Monto: desde $30,000 hasta $3,000,000</li>
+          <li>Plazo: hasta 36 meses</li>
+          <li>Requisitos accesibles y sin complicaciones</li>
+          <li>Proceso rápido y transparente</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito para Vivienda",
+      content: `
+        <p><strong>Para:</strong> Personas que desean adquirir, construir o remodelar vivienda.</p>
+        <ul>
+          <li>Monto: desde $150,000 hasta $2,500,000</li>
+          <li>Plazo: hasta 120 meses</li>
+          <li>Opciones flexibles y tasas competitivas</li>
+          <li>Apoyo en gestión y asesoría personalizada</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito para Vehículos",
+      content: `
+        <p><strong>Para:</strong> Compra de autos nuevos o seminuevos.</p>
+        <ul>
+          <li>Monto: hasta $1,000,000</li>
+          <li>Plazo: hasta 60 meses</li>
+          <li>Tasas de interés competitivas</li>
+          <li>Financiamiento rápido y fácil</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito para Equipos",
+      content: `
+        <p><strong>Para:</strong> Financiamiento para adquisición de maquinaria y equipo productivo.</p>
+        <ul>
+          <li>Monto: desde $50,000 hasta $3,000,000</li>
+          <li>Plazo: hasta 48 meses</li>
+          <li>Asesoría especializada para tu negocio</li>
+          <li>Flexibilidad en pagos</li>
+        </ul>
+      `
+    },
+    {
+      title: "Crédito Simple",
+      content: `
+        <p><strong>Para:</strong> Personas y empresas que requieren financiamiento sencillo y rápido.</p>
+        <ul>
+          <li>Monto: desde $20,000 hasta $500,000</li>
+          <li>Plazo: hasta 24 meses</li>
+          <li>Requisitos mínimos</li>
+          <li>Proceso ágil y sin complicaciones</li>
+        </ul>
+      `
+    }
+  ];
 
-        <article class="card" tabindex="0" aria-label="Crédito revolvente sin garantía">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="28" stroke="#0066cc" stroke-width="4" fill="none"/><line x1="16" y1="48" x2="48" y2="16" stroke="#0066cc" stroke-width="4"/></svg>
-          <h3>Crédito revolvente sin garantía</h3>
-          <p><strong>Monto:</strong> Desde 1 mdp a 5 mdp</p>
-          <p><strong>Tasa anual:</strong> 28% a 33%</p>
-          <p>Línea de factoraje revolvente con duración de un año</p>
-          <p><strong>Requerimientos:</strong></p>
-          <ul>
-            <li>Solo aplica a clientes que facturen más de 80 mdp anuales</li>
-            <li>Buen buró de crédito</li>
-            <li>1 año de operación</li>
-            <li>Registrado ante el SAT</li>
-          </ul>
-        </article>
+  const track = document.querySelector('.carousel-track');
+  const prevBtn = document.querySelector('.carousel-button.prev');
+  const nextBtn = document.querySelector('.carousel-button.next');
+  let currentIndex = 0;
 
-        <article class="card" tabindex="0" aria-label="Factoraje">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" stroke="#0066cc" stroke-width="4" fill="none"/><path d="M20 44h24v-4H20v4zM20 36h24v-4H20v4zM20 28h24v-4H20v4z" fill="#0066cc"/></svg>
-          <h3>Factoraje</h3>
-          <p>Convierte tus facturas por cobrar (CFDI) en dinero al instante.</p>
-          <p>Pago a 30, 45 o 60 días según tus necesidades.</p>
-          <p>Desde $50,000 hasta $10,000,000.</p>
-          <p><strong>Requisitos:</strong></p>
-          <ul>
-            <li>CFDI validado y vigente</li>
-            <li>Cliente no debe estar en buró de crédito negativo</li>
-            <li>Empresa con al menos 1 año de operaciones</li>
-          </ul>
-        </article>
+  // Generar tarjetas HTML
+  cardsData.forEach(({title, content}) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<h2>${title}</h2>${content}`;
+    track.appendChild(card);
+  });
 
-      </div>
-    </section>
+  // Función para actualizar posición del carrusel
+  function updateCarousel() {
+    const slideWidth = track.querySelector('.card').offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
 
-    <section id="testimonios" tabindex="0" aria-label="Testimonios de clientes">
-      <h2>Testimonios</h2>
-      <blockquote>
-        <p>"IMPULSO FINANCIERO PYME nos apoyó con un crédito simple que nos permitió crecer sin complicaciones. Excelente servicio y atención."</p>
-        <footer>– Ana G., Empresaria</footer>
-      </blockquote>
-      <blockquote>
-        <p>"Su factoraje nos ayudó a mantener flujo de efectivo estable para cumplir con nuestros proveedores."</p>
-        <footer>– Carlos M., Distribuidor</footer>
-      </blockquote>
-    </section>
+  // Botones
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? cardsData.length - 1 : currentIndex - 1;
+    updateCarousel();
+  });
 
-    <section id="contacto" tabindex="0" aria-label="Formulario de contacto">
-      <h2>Contacto</h2>
-      <form id="contactForm" aria-describedby="contact-form-instructions" novalidate>
-        <p id="contact-form-instructions">Envía tus dudas o solicitudes y te responderemos a la brevedad.</p>
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === cardsData.length - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
+  });
 
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required aria-required="true" />
+  // Ajustar tamaño carrusel al cambiar tamaño de ventana
+  window.addEventListener('resize', updateCarousel);
 
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" placeholder="tuemail@ejemplo.com" required aria-required="true" />
+  // Inicializar
+  updateCarousel();
 
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="(55) 1234 5678" pattern="[\d\s\-\+\(\)]{7,15}" aria-describedby="telefonoHelp" />
-        <small id="telefonoHelp" style="font-size:0.85rem; color:#666;">Opcional, pero útil para contacto rápido</small>
+  // Envío simple formulario (ejemplo, sin backend)
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('¡Gracias por contactarnos! Pronto recibirás información.');
+    e.target.reset();
+  });
+</script>
 
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
-
-        <button type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    <p>© 2024 IMPULSO FINANCIERO PYME - Todos los derechos reservados</p>
-    <div class="social-buttons" role="list" aria-label="Redes sociales">
-      <a href="https://wa.me/5215512345678" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="WhatsApp">
-        <span class="icon-whatsapp" aria-hidden="true"></span>
-      </a>
-      <a href="https://www.facebook.com/ImpulsoFinancieroPYME" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Facebook">
-        <span class="icon-facebook" aria-hidden="true"></span>
-      </a>
-      <a href="https://www.instagram.com/ImpulsoFinancieroPYME" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Instagram">
-        <span class="icon-instagram" aria-hidden="true"></span>
-      </a>
-      <a href="https://www.linkedin.com/company/impulsofinancieropyme" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
-        <span class="icon-linkedin" aria-hidden="true"></span>
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    // Simple form validation example
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const nombre = this.nombre.value.trim();
-      const correo = this.correo.value.trim();
-      const mensaje = this.mensaje.value.trim();
-      if (!nombre) {
-        alert('Por favor ingresa tu nombre completo.');
-        this.nombre.focus();
-        return;
-      }
-      if (!correo) {
-        alert('Por favor ingresa un correo válido.');
-        this.correo.focus();
-        return;
-      }
-      if (!mensaje) {
-        alert('Por favor escribe un mensaje.');
-        this.mensaje.focus();
-        return;
-      }
-      alert('Gracias por contactarnos. Pronto recibirás una respuesta.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>
