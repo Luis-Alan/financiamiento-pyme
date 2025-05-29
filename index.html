@@ -56,7 +56,7 @@
 
     section.card {
       background: #fff;
-      flex: 1 1 300px; /* crece y encoge, base 300px */
+      flex: 1 1 300px;
       max-width: 360px;
       padding: 1.5rem;
       border-radius: var(--borde-radio);
@@ -153,6 +153,25 @@
       color: red;
     }
 
+    /* Botones sociales */
+    .social-buttons {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .social-buttons a {
+      display: inline-block;
+      margin: 0 1rem;
+      color: var(--color-primario);
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-buttons a:hover {
+      color: #003d99;
+    }
+
     footer {
       background-color: #eee;
       text-align: center;
@@ -188,6 +207,9 @@
       }
     }
   </style>
+
+  <!-- Incluyo iconos de redes sociales vía CDN de Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -196,8 +218,8 @@
   </header>
 
   <main>
-    <!-- Contenedor flex para tarjetas -->
     <div class="cards-container">
+      <!-- tarjetas igual que antes -->
       <section class="card">
         <h2>Crédito Simple sin Garantía</h2>
         <ul>
@@ -257,17 +279,28 @@
       </section>
     </div>
 
-    <!-- Formulario de contacto -->
     <section class="form-section">
       <h2>¿Te interesa alguno? ¡Contáctanos!</h2>
       <form id="contact-form" action="https://formspree.io/f/mnnvaakg" method="POST">
         <input type="text" name="nombre" placeholder="Tu nombre completo" required />
         <input type="email" name="email" placeholder="Tu correo electrónico" required />
         <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o consulta aquí..." required></textarea>
+        <!-- Campo oculto para copia de correo a ti -->
+        <input type="hidden" name="_cc" value="luisalanlazarinicortez@gmail.com" />
         <button type="submit">Enviar mensaje</button>
         <div id="form-status" role="alert" aria-live="polite"></div>
       </form>
     </section>
+
+    <!-- Botones sociales -->
+    <div class="social-buttons" aria-label="Redes sociales">
+      <a href="https://www.linkedin.com/in/tu-perfil-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
   </main>
 
   <footer>
@@ -275,30 +308,34 @@
   </footer>
 
   <script>
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
+      status.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
       try {
         const response = await fetch(form.action, {
           method: form.method,
-          body: data,
+          body: formData,
           headers: { 'Accept': 'application/json' }
         });
 
         if (response.ok) {
-          status.innerText = "✅ ¡Mensaje enviado correctamente!";
-          status.className = "";
+          status.textContent = '¡Mensaje enviado con éxito! Gracias por contactarnos.';
           form.reset();
         } else {
-          status.innerText = "❌ Hubo un error. Intenta más tarde.";
-          status.className = "error";
+          const data = await response.json();
+          if (data.errors) {
+            status.textContent = data.errors.map(err => err.message).join(', ');
+          } else {
+            status.textContent = 'Error al enviar el formulario. Por favor, intenta de nuevo.';
+          }
         }
       } catch (error) {
-        status.innerText = "❌ Error de conexión. Intenta nuevamente.";
-        status.className = "error";
+        status.textContent = 'Error al enviar el formulario. Por favor, verifica tu conexión e intenta otra vez.';
       }
     });
   </script>
