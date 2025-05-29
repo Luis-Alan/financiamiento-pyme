@@ -3,28 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Financiamiento Empresarial PyME</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-RI9pT7gFJfg8dQ3W6lbdTOgxA5FJlDdMHJ1PP8uAhDN4e8GZpZsOwqXz0K9mlYVXcrjFJcM1F8r7pgDoInSgNw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>Soluciones de Financiamiento PyME</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f9;
       color: #333;
-      scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(135deg, #004080, #007acc);
+      background-color: #0052cc;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
 
     header h1 {
@@ -34,32 +26,25 @@
 
     header p {
       font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
 
     main {
+      padding: 2rem;
       max-width: 1000px;
       margin: auto;
-      padding: 2rem;
     }
 
     section {
       background-color: white;
+      margin-bottom: 2rem;
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h2 {
-      color: #004080;
+    h2 {
+      color: #0052cc;
     }
 
     ul {
@@ -71,167 +56,148 @@
     }
 
     footer {
-      background-color: #004080;
-      color: white;
+      background-color: #eee;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
     }
 
-    .contact-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-
-    .contact-btn:hover {
-      background-color: #005fa3;
-    }
-
-    .icon {
-      margin-right: 8px;
-      color: #007acc;
-    }
-
-    /* Formulario */
-    #contacto {
-      background-color: white;
+    /* Estilos para el formulario */
+    .form-section {
+      background-color: #e6f0ff;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
     }
 
-    input, textarea {
-      padding: 0.75rem;
+    input, textarea, button {
+      margin-top: 0.8rem;
+      padding: 0.8rem;
       border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 1rem;
     }
 
     button {
-      background-color: #007acc;
+      background-color: #0052cc;
       color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      border: none;
     }
 
     button:hover {
-      background-color: #005fa3;
+      background-color: #003d99;
     }
 
-    /* Botón flotante de WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      text-decoration: none;
-      z-index: 1000;
+    #form-status {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-building"></i> Financiamiento Empresarial PyME</h1>
+    <h1>Financiamiento Empresarial PyME</h1>
     <p>Soluciones de crédito y arrendamiento a la medida</p>
-    <a class="contact-btn" href="#contacto">Solicita información</a>
   </header>
 
   <main>
+    <!-- Secciones de financiamiento -->
     <section>
-      <h2><i class="fas fa-money-bill-wave icon"></i> Crédito Simple sin Garantía</h2>
+      <h2>Crédito Simple sin Garantía</h2>
       <ul>
-        <li>Tasa fija promedio: 29% a 39%</li>
-        <li>Plazo: 12, 24 meses</li>
-        <li>Monto: $50,000 - $1,000,000 MXN</li>
-        <li>Requisitos: buen buró, 1 año de operación, SAT</li>
+        <li><strong>Tasa fija promedio:</strong> 29% a 39% anual</li>
+        <li><strong>Plazos:</strong> 12, 24 meses</li>
+        <li><strong>Monto:</strong> 50 mil a 1 millón de pesos</li>
+        <li><strong>Requisitos:</strong> Buen buró, 1 año de operación, registrado ante el SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-home icon"></i> Crédito con Garantía Inmobiliaria</h2>
+      <h2>Crédito con Garantía Inmobiliaria</h2>
       <ul>
-        <li>Inmuebles: casa, oficina, local, etc.</li>
-        <li>Tasa: 20% a 32%</li>
-        <li>Plazo: hasta 10 años</li>
-        <li>Monto: $1M - $300M MXN</li>
+        <li><strong>Tipos de inmuebles:</strong> Casa, oficina, local, bodega, etc.</li>
+        <li><strong>Tasa:</strong> 20% a 32% anual</li>
+        <li><strong>Plazos:</strong> Hasta 120 meses</li>
+        <li><strong>Monto:</strong> 1 millón a 300 millones de pesos</li>
+        <li><strong>Requisitos:</strong> Buró no determinante, 1 año operación, SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-repeat icon"></i> Crédito Revolvente con Garantía</h2>
+      <h2>Crédito Revolvente con Garantía</h2>
       <ul>
-        <li>Tasa: 24% a 27%</li>
-        <li>Monto: $1M - $30M MXN</li>
-        <li>Requisitos: buró flexible, 1 año, SAT</li>
+        <li><strong>Inmuebles:</strong> Casa, bodega, local, etc.</li>
+        <li><strong>Monto:</strong> 1 a 30 mdp</li>
+        <li><strong>Tasa:</strong> 24% a 27%</li>
+        <li><strong>Plazo:</strong> 6 a 36 meses</li>
+        <li><strong>Requisitos:</strong> Buró flexible, 1 año, SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-credit-card icon"></i> Crédito Revolvente sin Garantía</h2>
+      <h2>Crédito Revolvente sin Garantía</h2>
       <ul>
-        <li>Monto: $1M - $5M MXN</li>
-        <li>Duración: línea de 1 año</li>
-        <li>Requisitos: facturar >$80M anuales</li>
+        <li><strong>Monto:</strong> 1 a 5 mdp</li>
+        <li><strong>Tasa:</strong> 28% a 33%</li>
+        <li><strong>Duración:</strong> Línea de un año</li>
+        <li><strong>Requisitos:</strong> Facturar >80 mdp anuales, buen buró, 1 año, SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-file-invoice-dollar icon"></i> Factoraje</h2>
+      <h2>Factoraje</h2>
       <ul>
-        <li>Tasa: 1.5% a 4% mensual</li>
-        <li>Cobertura: 70% a 85%</li>
-        <li>Plazo de pago: 30 a 120 días</li>
+        <li><strong>Monto:</strong> 200 mil a 140 mdp</li>
+        <li><strong>Tasa:</strong> 1.5% a 4% mensual</li>
+        <li><strong>Plazo de pago:</strong> 30 a 120 días</li>
+        <li><strong>Cobertura:</strong> 70% a 85% de las facturas</li>
+        <li><strong>Requisitos:</strong> Buen buró, 1 año, SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-exchange-alt icon"></i> Sale & Leaseback</h2>
+      <h2>Sale and Leaseback</h2>
       <ul>
-        <li>Monto: $500K - $120M MXN</li>
-        <li>Tasa: 25% a 29%</li>
-        <li>Activos: maquinaria, transporte</li>
+        <li><strong>Activos:</strong> Máquinas, transportes, líneas producción</li>
+        <li><strong>Monto:</strong> 500 mil a 120 mdp</li>
+        <li><strong>Tasa:</strong> 25% a 29%</li>
+        <li><strong>Plazo:</strong> hasta 60 meses</li>
+        <li><strong>Requisitos:</strong> Buen buró, 1 año, SAT</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-car icon"></i> Arrendamiento</h2>
+      <h2>Arrendamiento</h2>
       <ul>
-        <li>Monto: $500K - $300M MXN</li>
-        <li>Enganche: 10% - 25%</li>
-        <li>Activos nuevos o seminuevos</li>
+        <li><strong>Activos:</strong> Nuevos o seminuevos</li>
+        <li><strong>Monto:</strong> 500 mil a 300 mdp</li>
+        <li><strong>Tasa:</strong> 25% a 29%</li>
+        <li><strong>Plazo:</strong> hasta 60 meses</li>
+        <li><strong>Enganche:</strong> 10% a 25%</li>
+        <li><strong>Requisitos:</strong> Buen buró, 1 año, SAT</li>
       </ul>
     </section>
 
-    <section id="contacto">
-      <h2><i class="fas fa-envelope icon"></i> Contáctanos</h2>
-      <form action="mailto:luisalanlazarinicortez@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
+    <!-- Formulario de contacto -->
+    <section class="form-section">
+      <h2>¿Te interesa alguno? ¡Contáctanos!</h2>
+      <form id="contact-form" action="https://formspree.io/f/mnnvaakg" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre completo" required />
         <input type="email" name="email" placeholder="Tu correo electrónico" required />
-        <textarea name="mensaje" rows="5" placeholder="Tu mensaje..." required></textarea>
+        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o consulta aquí..." required></textarea>
         <button type="submit">Enviar mensaje</button>
+        <div id="form-status"></div>
       </form>
     </section>
   </main>
@@ -240,30 +206,34 @@
     <p>© 2025 Financiamiento PyME | Contacto: luisalanlazarinicortez@gmail.com</p>
   </footer>
 
-  <!-- Botón flotante WhatsApp -->
-  <a
-    href="https://wa.me/5215555555555?text=Hola,%20estoy%20interesado%20en%20opciones%20de%20financiamiento"
-    class="whatsapp-float"
-    target="_blank"
-  >
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <!-- Animación al hacer scroll -->
   <script>
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
           }
         });
-      },
-      { threshold: 0.1 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
+        if (response.ok) {
+          status.innerText = "✅ ¡Mensaje enviado correctamente!";
+          status.className = "";
+          form.reset();
+        } else {
+          status.innerText = "❌ Hubo un error. Intenta más tarde.";
+          status.className = "error";
+        }
+      } catch (error) {
+        status.innerText = "❌ Error de conexión. Intenta nuevamente.";
+        status.className = "error";
+      }
+    });
   </script>
 </body>
 </html>
