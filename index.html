@@ -2,310 +2,125 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Soluciones de Financiamiento PyME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Contacto</title>
   <style>
-    :root {
-      --color-primario: #0052cc;
-      --color-secundario: #e6f0ff;
-      --color-fondo: #f4f6f8;
-      --borde-radio: 12px;
-      --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
-      --transicion: 0.3s ease;
-    }
-
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--color-fondo);
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
       color: #333;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+    #form-status {
+      text-align: center;
+      margin-top: 10px;
+      color: #555;
+    }
+    .social-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .facebook { background: #3b5998; }
+    .twitter { background: #1da1f2; }
+    .instagram { background: #e1306c; }
+    .whatsapp { background: #25d366; }
+    .info-section {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .info-section h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .info-section p {
+      color: #555;
       line-height: 1.6;
     }
-
-    header {
-      background-color: var(--color-primario);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-
-    main {
-      padding: 1.5rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* Contenedor flex para tarjetas */
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-
-    section.card {
-      background: #fff;
-      flex: 1 1 300px;
-      max-width: 360px;
-      padding: 1.5rem;
-      border-radius: var(--borde-radio);
-      box-shadow: var(--sombra);
-      transition: box-shadow var(--transicion), transform var(--transicion);
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-    }
-
-    section.card:hover {
-      box-shadow: 0 8px 30px rgba(0, 82, 204, 0.25);
-      transform: translateY(-6px);
-    }
-
-    h2 {
-      color: var(--color-primario);
-      margin-top: 0;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      margin: 0;
-      flex-grow: 1;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Formulario */
-    .form-section {
-      background-color: var(--color-secundario);
-      border-radius: var(--borde-radio);
-      padding: 1.5rem;
-      box-shadow: var(--sombra);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-
-    .form-section h2 {
-      color: var(--color-primario);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    input, textarea {
-      padding: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--color-primario);
-      outline: none;
-    }
-
-    button {
-      background-color: var(--color-primario);
-      color: white;
-      padding: 0.8rem;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #003d99;
-    }
-
-    #form-status {
-      margin-top: 1rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .error {
-      color: red;
-    }
-
-    /* Botones sociales */
-    .social-buttons {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .social-buttons a {
-      display: inline-block;
-      margin: 0 1rem;
-      color: var(--color-primario);
-      text-decoration: none;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-buttons a:hover {
-      color: #003d99;
-    }
-
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    /* Responsivo */
-    @media (max-width: 900px) {
-      .cards-container {
-        justify-content: center;
-      }
-      section.card {
-        flex: 1 1 45%;
-        max-width: 45%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      section.card {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-      }
-    }
   </style>
-
-  <!-- Incluyo iconos de redes sociales vía CDN de Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1>Financiamiento Empresarial PyME</h1>
-    <p>Soluciones de crédito y arrendamiento a la medida</p>
-  </header>
 
-  <main>
-    <div class="cards-container">
-      <!-- tarjetas igual que antes -->
-      <section class="card">
-        <h2>Crédito Simple sin Garantía</h2>
-        <ul>
-          <li><strong>Tasa fija:</strong> 29% a 39% anual</li>
-          <li><strong>Plazos:</strong> 12, 24 meses</li>
-          <li><strong>Monto:</strong> 50 mil a 1 millón de pesos</li>
-          <li><strong>Requisitos:</strong> Buen buró, 1 año de operación, SAT</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Crédito con Garantía Inmobiliaria</h2>
-        <ul>
-          <li><strong>Inmuebles:</strong> Casa, oficina, local, bodega</li>
-          <li><strong>Tasa:</strong> 20% a 32%</li>
-          <li><strong>Plazo:</strong> Hasta 120 meses</li>
-          <li><strong>Monto:</strong> 1 a 300 mdp</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Crédito Revolvente con Garantía</h2>
-        <ul>
-          <li><strong>Inmuebles:</strong> Casa, bodega, local</li>
-          <li><strong>Monto:</strong> 1 a 30 mdp</li>
-          <li><strong>Tasa:</strong> 24% a 27%</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Crédito Revolvente sin Garantía</h2>
-        <ul>
-          <li><strong>Monto:</strong> 1 a 5 mdp</li>
-          <li><strong>Tasa:</strong> 28% a 33%</li>
-          <li><strong>Requisitos:</strong> Facturar &gt;80 mdp anuales, buen buró</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Factoraje</h2>
-        <ul>
-          <li><strong>Monto:</strong> 200 mil a 140 mdp</li>
-          <li><strong>Tasa:</strong> 1.5% a 4% mensual</li>
-          <li><strong>Cobertura:</strong> 70% a 85%</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Sale and Leaseback</h2>
-        <ul>
-          <li><strong>Activos:</strong> Máquinas, transportes</li>
-          <li><strong>Monto:</strong> 500 mil a 120 mdp</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2>Arrendamiento</h2>
-        <ul>
-          <li><strong>Activos:</strong> Nuevos o seminuevos</li>
-          <li><strong>Monto:</strong> 500 mil a 300 mdp</li>
-          <li><strong>Tasa:</strong> 25% a 29%</li>
-        </ul>
-      </section>
-    </div>
+  <h1>Contáctanos</h1>
+  <form id="contact-form" action="https://formspree.io/f/tu-codigo" method="POST">
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" id="name" required />
 
-    <section class="form-section">
-      <h2>¿Te interesa alguno? ¡Contáctanos!</h2>
-      <form id="contact-form" action="https://formspree.io/f/mnnvaakg" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre completo" required />
-        <input type="email" name="email" placeholder="Tu correo electrónico" required />
-        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o consulta aquí..." required></textarea>
-        <!-- Campo oculto para copia de correo a ti -->
-        <input type="hidden" name="_cc" value="luisalanlazarinicortez@gmail.com" />
-        <button type="submit">Enviar mensaje</button>
-        <div id="form-status" role="alert" aria-live="polite"></div>
-      </form>
-    </section>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" name="email" id="email" required />
 
-    <!-- Botones sociales -->
-    <div class="social-buttons" aria-label="Redes sociales">
-      <a href="https://www.linkedin.com/in/tu-perfil-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://wa.me/5211234567890" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
-  </main>
+    <label for="phone">Teléfono:</label>
+    <input type="tel" name="phone" id="phone" required />
 
-  <footer>
-    <p>&copy; 2025 Financiamiento PyME | Contacto: <a href="mailto:luisalanlazarinicortez@gmail.com">luisalanlazarinicortez@gmail.com</a></p>
-  </footer>
+    <label for="message">Mensaje:</label>
+    <textarea name="message" id="message" rows="5" required></textarea>
+
+    <input type="hidden" name="_subject" value="Nuevo mensaje del formulario">
+    <input type="hidden" name="_cc" value="tucorreo@ejemplo.com">
+
+    <button type="submit">Enviar</button>
+    <div id="form-status"></div>
+  </form>
+
+  <div class="social-links">
+    <a href="https://facebook.com/tu-pagina" target="_blank" class="facebook">Facebook</a>
+    <a href="https://twitter.com/tu-pagina" target="_blank" class="twitter">Twitter</a>
+    <a href="https://instagram.com/tu-pagina" target="_blank" class="instagram">Instagram</a>
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp">WhatsApp</a>
+  </div>
+
+  <div class="info-section">
+    <h2>Misión</h2>
+    <p><!-- Aquí puedes escribir la misión de tu empresa o proyecto --></p>
+
+    <h2>Visión</h2>
+    <p><!-- Aquí puedes escribir la visión de tu empresa o proyecto --></p>
+  </div>
 
   <script>
     const form = document.getElementById('contact-form');
